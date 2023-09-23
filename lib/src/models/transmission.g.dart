@@ -302,9 +302,11 @@ _$_TransmissionTorrent _$$_TransmissionTorrentFromJson(
       secondsDownloading: json['secondsDownloading'] as int?,
       secondsSeeding: json['secondsSeeding'] as int?,
       seedIdleLimit: json['seedIdleLimit'] as int?,
-      seedIdleMode: json['seedIdleMode'] as int?,
+      seedIdleMode: $enumDecodeNullable(
+          _$TransmissionIdleLimitEnumMap, json['seedIdleMode']),
       seedRatioLimit: (json['seedRatioLimit'] as num?)?.toDouble(),
-      seedRatioMode: json['seedRatioMode'] as int?,
+      seedRatioMode: $enumDecodeNullable(
+          _$TransmissionRatioLimitEnumMap, json['seedRatioMode']),
       sizeWhenDone: json['sizeWhenDone'] as int?,
       startDate: const EpochDateTimeSecondsConverter()
           .fromJson(json['startDate'] as int?),
@@ -401,9 +403,9 @@ Map<String, dynamic> _$$_TransmissionTorrentToJson(
       'secondsDownloading': instance.secondsDownloading,
       'secondsSeeding': instance.secondsSeeding,
       'seedIdleLimit': instance.seedIdleLimit,
-      'seedIdleMode': instance.seedIdleMode,
+      'seedIdleMode': _$TransmissionIdleLimitEnumMap[instance.seedIdleMode],
       'seedRatioLimit': instance.seedRatioLimit,
-      'seedRatioMode': instance.seedRatioMode,
+      'seedRatioMode': _$TransmissionRatioLimitEnumMap[instance.seedRatioMode],
       'sizeWhenDone': instance.sizeWhenDone,
       'startDate':
           const EpochDateTimeSecondsConverter().toJson(instance.startDate),
@@ -422,6 +424,18 @@ Map<String, dynamic> _$$_TransmissionTorrentToJson(
       'webseedsSendingToUs': instance.webseedsSendingToUs,
     };
 
+const _$TransmissionIdleLimitEnumMap = {
+  TransmissionIdleLimit.global: 0,
+  TransmissionIdleLimit.single: 1,
+  TransmissionIdleLimit.unlimited: 2,
+};
+
+const _$TransmissionRatioLimitEnumMap = {
+  TransmissionRatioLimit.global: 0,
+  TransmissionRatioLimit.single: 1,
+  TransmissionRatioLimit.unlimited: 2,
+};
+
 const _$TransmissionTorrentStatusEnumMap = {
   TransmissionTorrentStatus.stopped: 0,
   TransmissionTorrentStatus.queuedToVerify: 1,
@@ -431,3 +445,160 @@ const _$TransmissionTorrentStatusEnumMap = {
   TransmissionTorrentStatus.queuedToSeed: 5,
   TransmissionTorrentStatus.seeding: 6,
 };
+
+_$_TransmissionSession _$$_TransmissionSessionFromJson(
+        Map<String, dynamic> json) =>
+    _$_TransmissionSession(
+      altSpeedDown: json['alt-speed-down'] as int?,
+      altSpeedEnabled: json['alt-speed-enabled'] as bool?,
+      altSpeedTimeBegin: json['alt-speed-time-begin'] as int?,
+      altSpeedTimeDay: json['alt-speed-time-day'] as int?,
+      altSpeedTimeEnabled: json['alt-speed-time-enabled'] as bool?,
+      altSpeedTimeEnd: json['alt-speed-time-end'] as int?,
+      altSpeedUp: json['alt-speed-up'] as int?,
+      blocklistEnabled: json['blocklist-enabled'] as bool?,
+      blocklistSize: json['blocklist-size'] as int?,
+      blocklistUrl: json['blocklist-url'] as String?,
+      cacheSize: json['cache-size-mb'] as String?,
+      configDir: json['config-dir'] as String?,
+      defaultTrackers: json['default-trackers'] as String?,
+      dhtEnabled: json['dht-enabled'] as bool?,
+      downloadDir: json['download-dir'] as String?,
+      downloadQueueEnabled: json['download-queue-enabled'] as bool?,
+      downloadQueueSize: json['download-queue-size'] as int?,
+      encryption: json['encryption'] as String?,
+      idleSeedingLimitEnabled: json['idle-seeding-limit-enabled'] as bool?,
+      idleSeedingLimit: json['idle-seeding-limit'] as int?,
+      incompleteDirEnabled: json['incomplete-dir-enabled'] as bool?,
+      incompleteDir: json['incomplete-dir'] as String?,
+      lpdEnabled: json['lpd-enabled'] as bool?,
+      peerLimitGlobal: json['peer-limit-global'] as int?,
+      peerLimitPerTorrent: json['peer-limit-per-torrent'] as int?,
+      peerPortRandomOnStart: json['peer-port-random-on-start'] as bool?,
+      peerPort: json['peer-port'] as int?,
+      pexEnabled: json['pex-enabled'] as bool?,
+      portForwardingEnabled: json['port-forwarding-enabled'] as bool?,
+      queueStalledEnabled: json['queue-stalled-enabled'] as bool?,
+      queueStalledMinutes: json['queue-stalled-minutes'] as int?,
+      renamePartialFiles: json['rename-partial-files'] as bool?,
+      rpcVersionMinimum: json['rpc-version-minimum'] as int?,
+      rpcVersionSemver: json['rpc-version-semver'] as String?,
+      rpcVersion: json['rpc-version'] as int?,
+      scriptTorrentAddedEnabled: json['script-torrent-added-enabled'] as bool?,
+      scriptTorrentAddedFilename:
+          json['script-torrent-added-filename'] as String?,
+      scriptTorrentDoneEnabled: json['script-torrent-done-enabled'] as bool?,
+      scriptTorrentDoneFilename:
+          json['script-torrent-done-filename'] as String?,
+      scriptTorrentDoneSeedingEnabled:
+          json['script-torrent-done-seeding-enabled'] as bool?,
+      scriptTorrentDoneSeedingFilename:
+          json['script-torrent-done-seeding-filename'] as String?,
+      seedQueueEnabled: json['seed-queue-enabled'] as bool?,
+      seedQueueSize: json['seed-queue-size'] as int?,
+      seedRatioLimit: (json['seedRatioLimit'] as num?)?.toDouble(),
+      seedRatioLimited: json['seedRatioLimited'] as bool?,
+      sessionId: json['session-id'] as String?,
+      speedLimitDownEnabled: json['speed-limit-down-enabled'] as bool?,
+      speedLimitDown: json['speed-limit-down'] as int?,
+      speedLimitUpEnabled: json['speed-limit-up-enabled'] as bool?,
+      speedLimitUp: json['speed-limit-up'] as int?,
+      startAddedTorrents: json['start-added-torrents'] as bool?,
+      trashOriginalTorrentFiles: json['trash-original-torrent-files'] as bool?,
+      units: json['units'] == null
+          ? null
+          : TransmissionSessionUnits.fromJson(
+              json['units'] as Map<String, dynamic>),
+      utpEnabled: json['utp-enabled'] as bool?,
+      version: json['version'] as String?,
+    );
+
+Map<String, dynamic> _$$_TransmissionSessionToJson(
+        _$_TransmissionSession instance) =>
+    <String, dynamic>{
+      'alt-speed-down': instance.altSpeedDown,
+      'alt-speed-enabled': instance.altSpeedEnabled,
+      'alt-speed-time-begin': instance.altSpeedTimeBegin,
+      'alt-speed-time-day': instance.altSpeedTimeDay,
+      'alt-speed-time-enabled': instance.altSpeedTimeEnabled,
+      'alt-speed-time-end': instance.altSpeedTimeEnd,
+      'alt-speed-up': instance.altSpeedUp,
+      'blocklist-enabled': instance.blocklistEnabled,
+      'blocklist-size': instance.blocklistSize,
+      'blocklist-url': instance.blocklistUrl,
+      'cache-size-mb': instance.cacheSize,
+      'config-dir': instance.configDir,
+      'default-trackers': instance.defaultTrackers,
+      'dht-enabled': instance.dhtEnabled,
+      'download-dir': instance.downloadDir,
+      'download-queue-enabled': instance.downloadQueueEnabled,
+      'download-queue-size': instance.downloadQueueSize,
+      'encryption': instance.encryption,
+      'idle-seeding-limit-enabled': instance.idleSeedingLimitEnabled,
+      'idle-seeding-limit': instance.idleSeedingLimit,
+      'incomplete-dir-enabled': instance.incompleteDirEnabled,
+      'incomplete-dir': instance.incompleteDir,
+      'lpd-enabled': instance.lpdEnabled,
+      'peer-limit-global': instance.peerLimitGlobal,
+      'peer-limit-per-torrent': instance.peerLimitPerTorrent,
+      'peer-port-random-on-start': instance.peerPortRandomOnStart,
+      'peer-port': instance.peerPort,
+      'pex-enabled': instance.pexEnabled,
+      'port-forwarding-enabled': instance.portForwardingEnabled,
+      'queue-stalled-enabled': instance.queueStalledEnabled,
+      'queue-stalled-minutes': instance.queueStalledMinutes,
+      'rename-partial-files': instance.renamePartialFiles,
+      'rpc-version-minimum': instance.rpcVersionMinimum,
+      'rpc-version-semver': instance.rpcVersionSemver,
+      'rpc-version': instance.rpcVersion,
+      'script-torrent-added-enabled': instance.scriptTorrentAddedEnabled,
+      'script-torrent-added-filename': instance.scriptTorrentAddedFilename,
+      'script-torrent-done-enabled': instance.scriptTorrentDoneEnabled,
+      'script-torrent-done-filename': instance.scriptTorrentDoneFilename,
+      'script-torrent-done-seeding-enabled':
+          instance.scriptTorrentDoneSeedingEnabled,
+      'script-torrent-done-seeding-filename':
+          instance.scriptTorrentDoneSeedingFilename,
+      'seed-queue-enabled': instance.seedQueueEnabled,
+      'seed-queue-size': instance.seedQueueSize,
+      'seedRatioLimit': instance.seedRatioLimit,
+      'seedRatioLimited': instance.seedRatioLimited,
+      'session-id': instance.sessionId,
+      'speed-limit-down-enabled': instance.speedLimitDownEnabled,
+      'speed-limit-down': instance.speedLimitDown,
+      'speed-limit-up-enabled': instance.speedLimitUpEnabled,
+      'speed-limit-up': instance.speedLimitUp,
+      'start-added-torrents': instance.startAddedTorrents,
+      'trash-original-torrent-files': instance.trashOriginalTorrentFiles,
+      'units': instance.units,
+      'utp-enabled': instance.utpEnabled,
+      'version': instance.version,
+    };
+
+_$_TransmissionSessionUnits _$$_TransmissionSessionUnitsFromJson(
+        Map<String, dynamic> json) =>
+    _$_TransmissionSessionUnits(
+      speedUnits: (json['speed-units'] as List<dynamic>)
+          .map((e) => e as String)
+          .toList(),
+      speedBytes: json['speed-bytes'] as int,
+      sizeUnits: (json['size-units'] as List<dynamic>)
+          .map((e) => e as String)
+          .toList(),
+      sizeBytes: json['size-bytes'] as int,
+      memoryUnits: (json['memory-units'] as List<dynamic>)
+          .map((e) => e as String)
+          .toList(),
+      memoryBytes: json['memory-bytes'] as int,
+    );
+
+Map<String, dynamic> _$$_TransmissionSessionUnitsToJson(
+        _$_TransmissionSessionUnits instance) =>
+    <String, dynamic>{
+      'speed-units': instance.speedUnits,
+      'speed-bytes': instance.speedBytes,
+      'size-units': instance.sizeUnits,
+      'size-bytes': instance.sizeBytes,
+      'memory-units': instance.memoryUnits,
+      'memory-bytes': instance.memoryBytes,
+    };

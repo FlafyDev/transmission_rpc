@@ -57,7 +57,11 @@ class Transmission {
         }
         return recurse();
       case 200:
-        return TransmissionResponse.fromJson(jsonDecode(res.body));
+        final resObj = TransmissionResponse.fromJson(jsonDecode(res.body));
+        if (resObj.result != "success") {
+          throw TransmissionResponseException(resObj.result);
+        }
+        return resObj;
       default:
         throw Exception("Got unexpected status code: ${res.statusCode}.");
     }
@@ -71,4 +75,9 @@ class Transmission {
   void clearCredentials() {
     _authorization = null;
   }
+}
+
+class TransmissionResponseException implements Exception {
+  final String cause;
+  TransmissionResponseException(this.cause);
 }

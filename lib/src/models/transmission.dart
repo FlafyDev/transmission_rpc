@@ -38,6 +38,10 @@ enum TransmissionPriority {
   high,
 }
 
+extension PriorityValue on TransmissionPriority {
+  int get value => index - 1;
+}
+
 enum TransmissionTorrentStatus {
   @JsonValue(0)
   stopped,
@@ -53,6 +57,36 @@ enum TransmissionTorrentStatus {
   queuedToSeed,
   @JsonValue(6)
   seeding,
+}
+
+extension TorretnStatusValue on TransmissionTorrentStatus {
+  int get value => index;
+}
+
+enum TransmissionIdleLimit {
+  @JsonValue(0)
+  global,
+  @JsonValue(1)
+  single,
+  @JsonValue(2)
+  unlimited,
+}
+
+extension IdleLimitValue on TransmissionIdleLimit {
+  int get value => index;
+}
+
+enum TransmissionRatioLimit {
+  @JsonValue(0)
+  global,
+  @JsonValue(1)
+  single,
+  @JsonValue(2)
+  unlimited,
+}
+
+extension RatioLimitValue on TransmissionRatioLimit {
+  int get value => index;
 }
 
 @freezed
@@ -238,9 +272,9 @@ class TransmissionTorrent with _$TransmissionTorrent {
     @DurationTimeSecondsConverter() required int? secondsDownloading,
     @DurationTimeSecondsConverter() required int? secondsSeeding,
     required int? seedIdleLimit,
-    required int? seedIdleMode,
+    required TransmissionIdleLimit? seedIdleMode,
     required double? seedRatioLimit,
-    required int? seedRatioMode,
+    required TransmissionRatioLimit? seedRatioMode,
 
     /// TODO: 5.4.0
     // required bool sequentialDownload,
@@ -280,3 +314,97 @@ List<int>? _wantedListToJson(List<bool>? value) =>
     value?.map((val) => val ? 1 : 0).toList();
 List<bool>? _wantedListFromJson(List<dynamic>? value) =>
     value?.map((val) => val == 1 ? true : false).toList();
+
+@freezed
+class TransmissionSession with _$TransmissionSession {
+  const factory TransmissionSession({
+    @JsonKey(name: "alt-speed-down") required int? altSpeedDown,
+    @JsonKey(name: "alt-speed-enabled") required bool? altSpeedEnabled,
+    @JsonKey(name: "alt-speed-time-begin") required int? altSpeedTimeBegin,
+    @JsonKey(name: "alt-speed-time-day") required int? altSpeedTimeDay,
+    @JsonKey(name: "alt-speed-time-enabled") required bool? altSpeedTimeEnabled,
+    @JsonKey(name: "alt-speed-time-end") required int? altSpeedTimeEnd,
+    @JsonKey(name: "alt-speed-up") required int? altSpeedUp,
+    @JsonKey(name: "blocklist-enabled") required bool? blocklistEnabled,
+    @JsonKey(name: "blocklist-size") required int? blocklistSize,
+    @JsonKey(name: "blocklist-url") required String? blocklistUrl,
+
+    /// MB
+    @JsonKey(name: "cache-size-mb") required String? cacheSize,
+    @JsonKey(name: "config-dir") required String? configDir,
+    @JsonKey(name: "default-trackers") required String? defaultTrackers,
+    @JsonKey(name: "dht-enabled") required bool? dhtEnabled,
+    @JsonKey(name: "download-dir") required String? downloadDir,
+    @JsonKey(name: "download-queue-enabled")
+    required bool? downloadQueueEnabled,
+    @JsonKey(name: "download-queue-size") required int? downloadQueueSize,
+    @JsonKey(name: "encryption") required String? encryption,
+    @JsonKey(name: "idle-seeding-limit-enabled")
+    required bool? idleSeedingLimitEnabled,
+    @JsonKey(name: "idle-seeding-limit") required int? idleSeedingLimit,
+    @JsonKey(name: "incomplete-dir-enabled")
+    required bool? incompleteDirEnabled,
+    @JsonKey(name: "incomplete-dir") required String? incompleteDir,
+    @JsonKey(name: "lpd-enabled") required bool? lpdEnabled,
+    @JsonKey(name: "peer-limit-global") required int? peerLimitGlobal,
+    @JsonKey(name: "peer-limit-per-torrent") required int? peerLimitPerTorrent,
+    @JsonKey(name: "peer-port-random-on-start")
+    required bool? peerPortRandomOnStart,
+    @JsonKey(name: "peer-port") required int? peerPort,
+    @JsonKey(name: "pex-enabled") required bool? pexEnabled,
+    @JsonKey(name: "port-forwarding-enabled")
+    required bool? portForwardingEnabled,
+    @JsonKey(name: "queue-stalled-enabled") required bool? queueStalledEnabled,
+    @JsonKey(name: "queue-stalled-minutes") required int? queueStalledMinutes,
+    @JsonKey(name: "rename-partial-files") required bool? renamePartialFiles,
+    @JsonKey(name: "rpc-version-minimum") required int? rpcVersionMinimum,
+    @JsonKey(name: "rpc-version-semver") required String? rpcVersionSemver,
+    @JsonKey(name: "rpc-version") required int? rpcVersion,
+    @JsonKey(name: "script-torrent-added-enabled")
+    required bool? scriptTorrentAddedEnabled,
+    @JsonKey(name: "script-torrent-added-filename")
+    required String? scriptTorrentAddedFilename,
+    @JsonKey(name: "script-torrent-done-enabled")
+    required bool? scriptTorrentDoneEnabled,
+    @JsonKey(name: "script-torrent-done-filename")
+    required String? scriptTorrentDoneFilename,
+    @JsonKey(name: "script-torrent-done-seeding-enabled")
+    required bool? scriptTorrentDoneSeedingEnabled,
+    @JsonKey(name: "script-torrent-done-seeding-filename")
+    required String? scriptTorrentDoneSeedingFilename,
+    @JsonKey(name: "seed-queue-enabled") required bool? seedQueueEnabled,
+    @JsonKey(name: "seed-queue-size") required int? seedQueueSize,
+    required double? seedRatioLimit,
+    required bool? seedRatioLimited,
+    @JsonKey(name: "session-id") required String? sessionId,
+    @JsonKey(name: "speed-limit-down-enabled")
+    required bool? speedLimitDownEnabled,
+    @JsonKey(name: "speed-limit-down") required int? speedLimitDown,
+    @JsonKey(name: "speed-limit-up-enabled") required bool? speedLimitUpEnabled,
+    @JsonKey(name: "speed-limit-up") required int? speedLimitUp,
+    @JsonKey(name: "start-added-torrents") required bool? startAddedTorrents,
+    @JsonKey(name: "trash-original-torrent-files")
+    required bool? trashOriginalTorrentFiles,
+    @JsonKey(name: "units") required TransmissionSessionUnits? units,
+    @JsonKey(name: "utp-enabled") required bool? utpEnabled,
+    @JsonKey(name: "version") required String? version,
+  }) = _TransmissionSession;
+
+  factory TransmissionSession.fromJson(Map<String, Object?> json) =>
+      _$TransmissionSessionFromJson(json);
+}
+
+@freezed
+class TransmissionSessionUnits with _$TransmissionSessionUnits {
+  const factory TransmissionSessionUnits({
+    @JsonKey(name: "speed-units") required List<String> speedUnits,
+    @JsonKey(name: "speed-bytes") required int speedBytes,
+    @JsonKey(name: "size-units") required List<String> sizeUnits,
+    @JsonKey(name: "size-bytes") required int sizeBytes,
+    @JsonKey(name: "memory-units") required List<String> memoryUnits,
+    @JsonKey(name: "memory-bytes") required int memoryBytes,
+  }) = _TransmissionSessionUnits;
+
+  factory TransmissionSessionUnits.fromJson(Map<String, Object?> json) =>
+      _$TransmissionSessionUnitsFromJson(json);
+}

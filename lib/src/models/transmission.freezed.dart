@@ -2390,9 +2390,10 @@ mixin _$TransmissionTorrent {
   @DurationTimeSecondsConverter()
   int? get secondsSeeding => throw _privateConstructorUsedError;
   int? get seedIdleLimit => throw _privateConstructorUsedError;
-  int? get seedIdleMode => throw _privateConstructorUsedError;
+  TransmissionIdleLimit? get seedIdleMode => throw _privateConstructorUsedError;
   double? get seedRatioLimit => throw _privateConstructorUsedError;
-  int? get seedRatioMode => throw _privateConstructorUsedError;
+  TransmissionRatioLimit? get seedRatioMode =>
+      throw _privateConstructorUsedError;
 
   /// TODO: 5.4.0
 // required bool sequentialDownload,
@@ -2488,9 +2489,9 @@ abstract class $TransmissionTorrentCopyWith<$Res> {
       @DurationTimeSecondsConverter() int? secondsDownloading,
       @DurationTimeSecondsConverter() int? secondsSeeding,
       int? seedIdleLimit,
-      int? seedIdleMode,
+      TransmissionIdleLimit? seedIdleMode,
       double? seedRatioLimit,
-      int? seedRatioMode,
+      TransmissionRatioLimit? seedRatioMode,
       int? sizeWhenDone,
       @EpochDateTimeSecondsConverter() DateTime? startDate,
       TransmissionTorrentStatus? status,
@@ -2838,7 +2839,7 @@ class _$TransmissionTorrentCopyWithImpl<$Res, $Val extends TransmissionTorrent>
       seedIdleMode: freezed == seedIdleMode
           ? _value.seedIdleMode
           : seedIdleMode // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as TransmissionIdleLimit?,
       seedRatioLimit: freezed == seedRatioLimit
           ? _value.seedRatioLimit
           : seedRatioLimit // ignore: cast_nullable_to_non_nullable
@@ -2846,7 +2847,7 @@ class _$TransmissionTorrentCopyWithImpl<$Res, $Val extends TransmissionTorrent>
       seedRatioMode: freezed == seedRatioMode
           ? _value.seedRatioMode
           : seedRatioMode // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as TransmissionRatioLimit?,
       sizeWhenDone: freezed == sizeWhenDone
           ? _value.sizeWhenDone
           : sizeWhenDone // ignore: cast_nullable_to_non_nullable
@@ -2991,9 +2992,9 @@ abstract class _$$_TransmissionTorrentCopyWith<$Res>
       @DurationTimeSecondsConverter() int? secondsDownloading,
       @DurationTimeSecondsConverter() int? secondsSeeding,
       int? seedIdleLimit,
-      int? seedIdleMode,
+      TransmissionIdleLimit? seedIdleMode,
       double? seedRatioLimit,
-      int? seedRatioMode,
+      TransmissionRatioLimit? seedRatioMode,
       int? sizeWhenDone,
       @EpochDateTimeSecondsConverter() DateTime? startDate,
       TransmissionTorrentStatus? status,
@@ -3340,7 +3341,7 @@ class __$$_TransmissionTorrentCopyWithImpl<$Res>
       seedIdleMode: freezed == seedIdleMode
           ? _value.seedIdleMode
           : seedIdleMode // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as TransmissionIdleLimit?,
       seedRatioLimit: freezed == seedRatioLimit
           ? _value.seedRatioLimit
           : seedRatioLimit // ignore: cast_nullable_to_non_nullable
@@ -3348,7 +3349,7 @@ class __$$_TransmissionTorrentCopyWithImpl<$Res>
       seedRatioMode: freezed == seedRatioMode
           ? _value.seedRatioMode
           : seedRatioMode // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as TransmissionRatioLimit?,
       sizeWhenDone: freezed == sizeWhenDone
           ? _value.sizeWhenDone
           : sizeWhenDone // ignore: cast_nullable_to_non_nullable
@@ -3691,11 +3692,11 @@ class _$_TransmissionTorrent implements _TransmissionTorrent {
   @override
   final int? seedIdleLimit;
   @override
-  final int? seedIdleMode;
+  final TransmissionIdleLimit? seedIdleMode;
   @override
   final double? seedRatioLimit;
   @override
-  final int? seedRatioMode;
+  final TransmissionRatioLimit? seedRatioMode;
 
   /// TODO: 5.4.0
 // required bool sequentialDownload,
@@ -4060,9 +4061,9 @@ abstract class _TransmissionTorrent implements TransmissionTorrent {
       @DurationTimeSecondsConverter() required final int? secondsDownloading,
       @DurationTimeSecondsConverter() required final int? secondsSeeding,
       required final int? seedIdleLimit,
-      required final int? seedIdleMode,
+      required final TransmissionIdleLimit? seedIdleMode,
       required final double? seedRatioLimit,
-      required final int? seedRatioMode,
+      required final TransmissionRatioLimit? seedRatioMode,
       required final int? sizeWhenDone,
       @EpochDateTimeSecondsConverter() required final DateTime? startDate,
       required final TransmissionTorrentStatus? status,
@@ -4217,11 +4218,11 @@ abstract class _TransmissionTorrent implements TransmissionTorrent {
   @override
   int? get seedIdleLimit;
   @override
-  int? get seedIdleMode;
+  TransmissionIdleLimit? get seedIdleMode;
   @override
   double? get seedRatioLimit;
   @override
-  int? get seedRatioMode;
+  TransmissionRatioLimit? get seedRatioMode;
   @override
 
   /// TODO: 5.4.0
@@ -4262,4 +4263,1865 @@ abstract class _TransmissionTorrent implements TransmissionTorrent {
   @JsonKey(ignore: true)
   _$$_TransmissionTorrentCopyWith<_$_TransmissionTorrent> get copyWith =>
       throw _privateConstructorUsedError;
+}
+
+TransmissionSession _$TransmissionSessionFromJson(Map<String, dynamic> json) {
+  return _TransmissionSession.fromJson(json);
+}
+
+/// @nodoc
+mixin _$TransmissionSession {
+  @JsonKey(name: "alt-speed-down")
+  int? get altSpeedDown => throw _privateConstructorUsedError;
+  @JsonKey(name: "alt-speed-enabled")
+  bool? get altSpeedEnabled => throw _privateConstructorUsedError;
+  @JsonKey(name: "alt-speed-time-begin")
+  int? get altSpeedTimeBegin => throw _privateConstructorUsedError;
+  @JsonKey(name: "alt-speed-time-day")
+  int? get altSpeedTimeDay => throw _privateConstructorUsedError;
+  @JsonKey(name: "alt-speed-time-enabled")
+  bool? get altSpeedTimeEnabled => throw _privateConstructorUsedError;
+  @JsonKey(name: "alt-speed-time-end")
+  int? get altSpeedTimeEnd => throw _privateConstructorUsedError;
+  @JsonKey(name: "alt-speed-up")
+  int? get altSpeedUp => throw _privateConstructorUsedError;
+  @JsonKey(name: "blocklist-enabled")
+  bool? get blocklistEnabled => throw _privateConstructorUsedError;
+  @JsonKey(name: "blocklist-size")
+  int? get blocklistSize => throw _privateConstructorUsedError;
+  @JsonKey(name: "blocklist-url")
+  String? get blocklistUrl => throw _privateConstructorUsedError;
+
+  /// MB
+  @JsonKey(name: "cache-size-mb")
+  String? get cacheSize => throw _privateConstructorUsedError;
+  @JsonKey(name: "config-dir")
+  String? get configDir => throw _privateConstructorUsedError;
+  @JsonKey(name: "default-trackers")
+  String? get defaultTrackers => throw _privateConstructorUsedError;
+  @JsonKey(name: "dht-enabled")
+  bool? get dhtEnabled => throw _privateConstructorUsedError;
+  @JsonKey(name: "download-dir")
+  String? get downloadDir => throw _privateConstructorUsedError;
+  @JsonKey(name: "download-queue-enabled")
+  bool? get downloadQueueEnabled => throw _privateConstructorUsedError;
+  @JsonKey(name: "download-queue-size")
+  int? get downloadQueueSize => throw _privateConstructorUsedError;
+  @JsonKey(name: "encryption")
+  String? get encryption => throw _privateConstructorUsedError;
+  @JsonKey(name: "idle-seeding-limit-enabled")
+  bool? get idleSeedingLimitEnabled => throw _privateConstructorUsedError;
+  @JsonKey(name: "idle-seeding-limit")
+  int? get idleSeedingLimit => throw _privateConstructorUsedError;
+  @JsonKey(name: "incomplete-dir-enabled")
+  bool? get incompleteDirEnabled => throw _privateConstructorUsedError;
+  @JsonKey(name: "incomplete-dir")
+  String? get incompleteDir => throw _privateConstructorUsedError;
+  @JsonKey(name: "lpd-enabled")
+  bool? get lpdEnabled => throw _privateConstructorUsedError;
+  @JsonKey(name: "peer-limit-global")
+  int? get peerLimitGlobal => throw _privateConstructorUsedError;
+  @JsonKey(name: "peer-limit-per-torrent")
+  int? get peerLimitPerTorrent => throw _privateConstructorUsedError;
+  @JsonKey(name: "peer-port-random-on-start")
+  bool? get peerPortRandomOnStart => throw _privateConstructorUsedError;
+  @JsonKey(name: "peer-port")
+  int? get peerPort => throw _privateConstructorUsedError;
+  @JsonKey(name: "pex-enabled")
+  bool? get pexEnabled => throw _privateConstructorUsedError;
+  @JsonKey(name: "port-forwarding-enabled")
+  bool? get portForwardingEnabled => throw _privateConstructorUsedError;
+  @JsonKey(name: "queue-stalled-enabled")
+  bool? get queueStalledEnabled => throw _privateConstructorUsedError;
+  @JsonKey(name: "queue-stalled-minutes")
+  int? get queueStalledMinutes => throw _privateConstructorUsedError;
+  @JsonKey(name: "rename-partial-files")
+  bool? get renamePartialFiles => throw _privateConstructorUsedError;
+  @JsonKey(name: "rpc-version-minimum")
+  int? get rpcVersionMinimum => throw _privateConstructorUsedError;
+  @JsonKey(name: "rpc-version-semver")
+  String? get rpcVersionSemver => throw _privateConstructorUsedError;
+  @JsonKey(name: "rpc-version")
+  int? get rpcVersion => throw _privateConstructorUsedError;
+  @JsonKey(name: "script-torrent-added-enabled")
+  bool? get scriptTorrentAddedEnabled => throw _privateConstructorUsedError;
+  @JsonKey(name: "script-torrent-added-filename")
+  String? get scriptTorrentAddedFilename => throw _privateConstructorUsedError;
+  @JsonKey(name: "script-torrent-done-enabled")
+  bool? get scriptTorrentDoneEnabled => throw _privateConstructorUsedError;
+  @JsonKey(name: "script-torrent-done-filename")
+  String? get scriptTorrentDoneFilename => throw _privateConstructorUsedError;
+  @JsonKey(name: "script-torrent-done-seeding-enabled")
+  bool? get scriptTorrentDoneSeedingEnabled =>
+      throw _privateConstructorUsedError;
+  @JsonKey(name: "script-torrent-done-seeding-filename")
+  String? get scriptTorrentDoneSeedingFilename =>
+      throw _privateConstructorUsedError;
+  @JsonKey(name: "seed-queue-enabled")
+  bool? get seedQueueEnabled => throw _privateConstructorUsedError;
+  @JsonKey(name: "seed-queue-size")
+  int? get seedQueueSize => throw _privateConstructorUsedError;
+  double? get seedRatioLimit => throw _privateConstructorUsedError;
+  bool? get seedRatioLimited => throw _privateConstructorUsedError;
+  @JsonKey(name: "session-id")
+  String? get sessionId => throw _privateConstructorUsedError;
+  @JsonKey(name: "speed-limit-down-enabled")
+  bool? get speedLimitDownEnabled => throw _privateConstructorUsedError;
+  @JsonKey(name: "speed-limit-down")
+  int? get speedLimitDown => throw _privateConstructorUsedError;
+  @JsonKey(name: "speed-limit-up-enabled")
+  bool? get speedLimitUpEnabled => throw _privateConstructorUsedError;
+  @JsonKey(name: "speed-limit-up")
+  int? get speedLimitUp => throw _privateConstructorUsedError;
+  @JsonKey(name: "start-added-torrents")
+  bool? get startAddedTorrents => throw _privateConstructorUsedError;
+  @JsonKey(name: "trash-original-torrent-files")
+  bool? get trashOriginalTorrentFiles => throw _privateConstructorUsedError;
+  @JsonKey(name: "units")
+  TransmissionSessionUnits? get units => throw _privateConstructorUsedError;
+  @JsonKey(name: "utp-enabled")
+  bool? get utpEnabled => throw _privateConstructorUsedError;
+  @JsonKey(name: "version")
+  String? get version => throw _privateConstructorUsedError;
+
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $TransmissionSessionCopyWith<TransmissionSession> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $TransmissionSessionCopyWith<$Res> {
+  factory $TransmissionSessionCopyWith(
+          TransmissionSession value, $Res Function(TransmissionSession) then) =
+      _$TransmissionSessionCopyWithImpl<$Res, TransmissionSession>;
+  @useResult
+  $Res call(
+      {@JsonKey(name: "alt-speed-down") int? altSpeedDown,
+      @JsonKey(name: "alt-speed-enabled") bool? altSpeedEnabled,
+      @JsonKey(name: "alt-speed-time-begin") int? altSpeedTimeBegin,
+      @JsonKey(name: "alt-speed-time-day") int? altSpeedTimeDay,
+      @JsonKey(name: "alt-speed-time-enabled") bool? altSpeedTimeEnabled,
+      @JsonKey(name: "alt-speed-time-end") int? altSpeedTimeEnd,
+      @JsonKey(name: "alt-speed-up") int? altSpeedUp,
+      @JsonKey(name: "blocklist-enabled") bool? blocklistEnabled,
+      @JsonKey(name: "blocklist-size") int? blocklistSize,
+      @JsonKey(name: "blocklist-url") String? blocklistUrl,
+      @JsonKey(name: "cache-size-mb") String? cacheSize,
+      @JsonKey(name: "config-dir") String? configDir,
+      @JsonKey(name: "default-trackers") String? defaultTrackers,
+      @JsonKey(name: "dht-enabled") bool? dhtEnabled,
+      @JsonKey(name: "download-dir") String? downloadDir,
+      @JsonKey(name: "download-queue-enabled") bool? downloadQueueEnabled,
+      @JsonKey(name: "download-queue-size") int? downloadQueueSize,
+      @JsonKey(name: "encryption") String? encryption,
+      @JsonKey(name: "idle-seeding-limit-enabled")
+      bool? idleSeedingLimitEnabled,
+      @JsonKey(name: "idle-seeding-limit") int? idleSeedingLimit,
+      @JsonKey(name: "incomplete-dir-enabled") bool? incompleteDirEnabled,
+      @JsonKey(name: "incomplete-dir") String? incompleteDir,
+      @JsonKey(name: "lpd-enabled") bool? lpdEnabled,
+      @JsonKey(name: "peer-limit-global") int? peerLimitGlobal,
+      @JsonKey(name: "peer-limit-per-torrent") int? peerLimitPerTorrent,
+      @JsonKey(name: "peer-port-random-on-start") bool? peerPortRandomOnStart,
+      @JsonKey(name: "peer-port") int? peerPort,
+      @JsonKey(name: "pex-enabled") bool? pexEnabled,
+      @JsonKey(name: "port-forwarding-enabled") bool? portForwardingEnabled,
+      @JsonKey(name: "queue-stalled-enabled") bool? queueStalledEnabled,
+      @JsonKey(name: "queue-stalled-minutes") int? queueStalledMinutes,
+      @JsonKey(name: "rename-partial-files") bool? renamePartialFiles,
+      @JsonKey(name: "rpc-version-minimum") int? rpcVersionMinimum,
+      @JsonKey(name: "rpc-version-semver") String? rpcVersionSemver,
+      @JsonKey(name: "rpc-version") int? rpcVersion,
+      @JsonKey(name: "script-torrent-added-enabled")
+      bool? scriptTorrentAddedEnabled,
+      @JsonKey(name: "script-torrent-added-filename")
+      String? scriptTorrentAddedFilename,
+      @JsonKey(name: "script-torrent-done-enabled")
+      bool? scriptTorrentDoneEnabled,
+      @JsonKey(name: "script-torrent-done-filename")
+      String? scriptTorrentDoneFilename,
+      @JsonKey(name: "script-torrent-done-seeding-enabled")
+      bool? scriptTorrentDoneSeedingEnabled,
+      @JsonKey(name: "script-torrent-done-seeding-filename")
+      String? scriptTorrentDoneSeedingFilename,
+      @JsonKey(name: "seed-queue-enabled") bool? seedQueueEnabled,
+      @JsonKey(name: "seed-queue-size") int? seedQueueSize,
+      double? seedRatioLimit,
+      bool? seedRatioLimited,
+      @JsonKey(name: "session-id") String? sessionId,
+      @JsonKey(name: "speed-limit-down-enabled") bool? speedLimitDownEnabled,
+      @JsonKey(name: "speed-limit-down") int? speedLimitDown,
+      @JsonKey(name: "speed-limit-up-enabled") bool? speedLimitUpEnabled,
+      @JsonKey(name: "speed-limit-up") int? speedLimitUp,
+      @JsonKey(name: "start-added-torrents") bool? startAddedTorrents,
+      @JsonKey(name: "trash-original-torrent-files")
+      bool? trashOriginalTorrentFiles,
+      @JsonKey(name: "units") TransmissionSessionUnits? units,
+      @JsonKey(name: "utp-enabled") bool? utpEnabled,
+      @JsonKey(name: "version") String? version});
+
+  $TransmissionSessionUnitsCopyWith<$Res>? get units;
+}
+
+/// @nodoc
+class _$TransmissionSessionCopyWithImpl<$Res, $Val extends TransmissionSession>
+    implements $TransmissionSessionCopyWith<$Res> {
+  _$TransmissionSessionCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? altSpeedDown = freezed,
+    Object? altSpeedEnabled = freezed,
+    Object? altSpeedTimeBegin = freezed,
+    Object? altSpeedTimeDay = freezed,
+    Object? altSpeedTimeEnabled = freezed,
+    Object? altSpeedTimeEnd = freezed,
+    Object? altSpeedUp = freezed,
+    Object? blocklistEnabled = freezed,
+    Object? blocklistSize = freezed,
+    Object? blocklistUrl = freezed,
+    Object? cacheSize = freezed,
+    Object? configDir = freezed,
+    Object? defaultTrackers = freezed,
+    Object? dhtEnabled = freezed,
+    Object? downloadDir = freezed,
+    Object? downloadQueueEnabled = freezed,
+    Object? downloadQueueSize = freezed,
+    Object? encryption = freezed,
+    Object? idleSeedingLimitEnabled = freezed,
+    Object? idleSeedingLimit = freezed,
+    Object? incompleteDirEnabled = freezed,
+    Object? incompleteDir = freezed,
+    Object? lpdEnabled = freezed,
+    Object? peerLimitGlobal = freezed,
+    Object? peerLimitPerTorrent = freezed,
+    Object? peerPortRandomOnStart = freezed,
+    Object? peerPort = freezed,
+    Object? pexEnabled = freezed,
+    Object? portForwardingEnabled = freezed,
+    Object? queueStalledEnabled = freezed,
+    Object? queueStalledMinutes = freezed,
+    Object? renamePartialFiles = freezed,
+    Object? rpcVersionMinimum = freezed,
+    Object? rpcVersionSemver = freezed,
+    Object? rpcVersion = freezed,
+    Object? scriptTorrentAddedEnabled = freezed,
+    Object? scriptTorrentAddedFilename = freezed,
+    Object? scriptTorrentDoneEnabled = freezed,
+    Object? scriptTorrentDoneFilename = freezed,
+    Object? scriptTorrentDoneSeedingEnabled = freezed,
+    Object? scriptTorrentDoneSeedingFilename = freezed,
+    Object? seedQueueEnabled = freezed,
+    Object? seedQueueSize = freezed,
+    Object? seedRatioLimit = freezed,
+    Object? seedRatioLimited = freezed,
+    Object? sessionId = freezed,
+    Object? speedLimitDownEnabled = freezed,
+    Object? speedLimitDown = freezed,
+    Object? speedLimitUpEnabled = freezed,
+    Object? speedLimitUp = freezed,
+    Object? startAddedTorrents = freezed,
+    Object? trashOriginalTorrentFiles = freezed,
+    Object? units = freezed,
+    Object? utpEnabled = freezed,
+    Object? version = freezed,
+  }) {
+    return _then(_value.copyWith(
+      altSpeedDown: freezed == altSpeedDown
+          ? _value.altSpeedDown
+          : altSpeedDown // ignore: cast_nullable_to_non_nullable
+              as int?,
+      altSpeedEnabled: freezed == altSpeedEnabled
+          ? _value.altSpeedEnabled
+          : altSpeedEnabled // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      altSpeedTimeBegin: freezed == altSpeedTimeBegin
+          ? _value.altSpeedTimeBegin
+          : altSpeedTimeBegin // ignore: cast_nullable_to_non_nullable
+              as int?,
+      altSpeedTimeDay: freezed == altSpeedTimeDay
+          ? _value.altSpeedTimeDay
+          : altSpeedTimeDay // ignore: cast_nullable_to_non_nullable
+              as int?,
+      altSpeedTimeEnabled: freezed == altSpeedTimeEnabled
+          ? _value.altSpeedTimeEnabled
+          : altSpeedTimeEnabled // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      altSpeedTimeEnd: freezed == altSpeedTimeEnd
+          ? _value.altSpeedTimeEnd
+          : altSpeedTimeEnd // ignore: cast_nullable_to_non_nullable
+              as int?,
+      altSpeedUp: freezed == altSpeedUp
+          ? _value.altSpeedUp
+          : altSpeedUp // ignore: cast_nullable_to_non_nullable
+              as int?,
+      blocklistEnabled: freezed == blocklistEnabled
+          ? _value.blocklistEnabled
+          : blocklistEnabled // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      blocklistSize: freezed == blocklistSize
+          ? _value.blocklistSize
+          : blocklistSize // ignore: cast_nullable_to_non_nullable
+              as int?,
+      blocklistUrl: freezed == blocklistUrl
+          ? _value.blocklistUrl
+          : blocklistUrl // ignore: cast_nullable_to_non_nullable
+              as String?,
+      cacheSize: freezed == cacheSize
+          ? _value.cacheSize
+          : cacheSize // ignore: cast_nullable_to_non_nullable
+              as String?,
+      configDir: freezed == configDir
+          ? _value.configDir
+          : configDir // ignore: cast_nullable_to_non_nullable
+              as String?,
+      defaultTrackers: freezed == defaultTrackers
+          ? _value.defaultTrackers
+          : defaultTrackers // ignore: cast_nullable_to_non_nullable
+              as String?,
+      dhtEnabled: freezed == dhtEnabled
+          ? _value.dhtEnabled
+          : dhtEnabled // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      downloadDir: freezed == downloadDir
+          ? _value.downloadDir
+          : downloadDir // ignore: cast_nullable_to_non_nullable
+              as String?,
+      downloadQueueEnabled: freezed == downloadQueueEnabled
+          ? _value.downloadQueueEnabled
+          : downloadQueueEnabled // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      downloadQueueSize: freezed == downloadQueueSize
+          ? _value.downloadQueueSize
+          : downloadQueueSize // ignore: cast_nullable_to_non_nullable
+              as int?,
+      encryption: freezed == encryption
+          ? _value.encryption
+          : encryption // ignore: cast_nullable_to_non_nullable
+              as String?,
+      idleSeedingLimitEnabled: freezed == idleSeedingLimitEnabled
+          ? _value.idleSeedingLimitEnabled
+          : idleSeedingLimitEnabled // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      idleSeedingLimit: freezed == idleSeedingLimit
+          ? _value.idleSeedingLimit
+          : idleSeedingLimit // ignore: cast_nullable_to_non_nullable
+              as int?,
+      incompleteDirEnabled: freezed == incompleteDirEnabled
+          ? _value.incompleteDirEnabled
+          : incompleteDirEnabled // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      incompleteDir: freezed == incompleteDir
+          ? _value.incompleteDir
+          : incompleteDir // ignore: cast_nullable_to_non_nullable
+              as String?,
+      lpdEnabled: freezed == lpdEnabled
+          ? _value.lpdEnabled
+          : lpdEnabled // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      peerLimitGlobal: freezed == peerLimitGlobal
+          ? _value.peerLimitGlobal
+          : peerLimitGlobal // ignore: cast_nullable_to_non_nullable
+              as int?,
+      peerLimitPerTorrent: freezed == peerLimitPerTorrent
+          ? _value.peerLimitPerTorrent
+          : peerLimitPerTorrent // ignore: cast_nullable_to_non_nullable
+              as int?,
+      peerPortRandomOnStart: freezed == peerPortRandomOnStart
+          ? _value.peerPortRandomOnStart
+          : peerPortRandomOnStart // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      peerPort: freezed == peerPort
+          ? _value.peerPort
+          : peerPort // ignore: cast_nullable_to_non_nullable
+              as int?,
+      pexEnabled: freezed == pexEnabled
+          ? _value.pexEnabled
+          : pexEnabled // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      portForwardingEnabled: freezed == portForwardingEnabled
+          ? _value.portForwardingEnabled
+          : portForwardingEnabled // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      queueStalledEnabled: freezed == queueStalledEnabled
+          ? _value.queueStalledEnabled
+          : queueStalledEnabled // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      queueStalledMinutes: freezed == queueStalledMinutes
+          ? _value.queueStalledMinutes
+          : queueStalledMinutes // ignore: cast_nullable_to_non_nullable
+              as int?,
+      renamePartialFiles: freezed == renamePartialFiles
+          ? _value.renamePartialFiles
+          : renamePartialFiles // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      rpcVersionMinimum: freezed == rpcVersionMinimum
+          ? _value.rpcVersionMinimum
+          : rpcVersionMinimum // ignore: cast_nullable_to_non_nullable
+              as int?,
+      rpcVersionSemver: freezed == rpcVersionSemver
+          ? _value.rpcVersionSemver
+          : rpcVersionSemver // ignore: cast_nullable_to_non_nullable
+              as String?,
+      rpcVersion: freezed == rpcVersion
+          ? _value.rpcVersion
+          : rpcVersion // ignore: cast_nullable_to_non_nullable
+              as int?,
+      scriptTorrentAddedEnabled: freezed == scriptTorrentAddedEnabled
+          ? _value.scriptTorrentAddedEnabled
+          : scriptTorrentAddedEnabled // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      scriptTorrentAddedFilename: freezed == scriptTorrentAddedFilename
+          ? _value.scriptTorrentAddedFilename
+          : scriptTorrentAddedFilename // ignore: cast_nullable_to_non_nullable
+              as String?,
+      scriptTorrentDoneEnabled: freezed == scriptTorrentDoneEnabled
+          ? _value.scriptTorrentDoneEnabled
+          : scriptTorrentDoneEnabled // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      scriptTorrentDoneFilename: freezed == scriptTorrentDoneFilename
+          ? _value.scriptTorrentDoneFilename
+          : scriptTorrentDoneFilename // ignore: cast_nullable_to_non_nullable
+              as String?,
+      scriptTorrentDoneSeedingEnabled: freezed ==
+              scriptTorrentDoneSeedingEnabled
+          ? _value.scriptTorrentDoneSeedingEnabled
+          : scriptTorrentDoneSeedingEnabled // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      scriptTorrentDoneSeedingFilename: freezed ==
+              scriptTorrentDoneSeedingFilename
+          ? _value.scriptTorrentDoneSeedingFilename
+          : scriptTorrentDoneSeedingFilename // ignore: cast_nullable_to_non_nullable
+              as String?,
+      seedQueueEnabled: freezed == seedQueueEnabled
+          ? _value.seedQueueEnabled
+          : seedQueueEnabled // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      seedQueueSize: freezed == seedQueueSize
+          ? _value.seedQueueSize
+          : seedQueueSize // ignore: cast_nullable_to_non_nullable
+              as int?,
+      seedRatioLimit: freezed == seedRatioLimit
+          ? _value.seedRatioLimit
+          : seedRatioLimit // ignore: cast_nullable_to_non_nullable
+              as double?,
+      seedRatioLimited: freezed == seedRatioLimited
+          ? _value.seedRatioLimited
+          : seedRatioLimited // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      sessionId: freezed == sessionId
+          ? _value.sessionId
+          : sessionId // ignore: cast_nullable_to_non_nullable
+              as String?,
+      speedLimitDownEnabled: freezed == speedLimitDownEnabled
+          ? _value.speedLimitDownEnabled
+          : speedLimitDownEnabled // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      speedLimitDown: freezed == speedLimitDown
+          ? _value.speedLimitDown
+          : speedLimitDown // ignore: cast_nullable_to_non_nullable
+              as int?,
+      speedLimitUpEnabled: freezed == speedLimitUpEnabled
+          ? _value.speedLimitUpEnabled
+          : speedLimitUpEnabled // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      speedLimitUp: freezed == speedLimitUp
+          ? _value.speedLimitUp
+          : speedLimitUp // ignore: cast_nullable_to_non_nullable
+              as int?,
+      startAddedTorrents: freezed == startAddedTorrents
+          ? _value.startAddedTorrents
+          : startAddedTorrents // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      trashOriginalTorrentFiles: freezed == trashOriginalTorrentFiles
+          ? _value.trashOriginalTorrentFiles
+          : trashOriginalTorrentFiles // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      units: freezed == units
+          ? _value.units
+          : units // ignore: cast_nullable_to_non_nullable
+              as TransmissionSessionUnits?,
+      utpEnabled: freezed == utpEnabled
+          ? _value.utpEnabled
+          : utpEnabled // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      version: freezed == version
+          ? _value.version
+          : version // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ) as $Val);
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $TransmissionSessionUnitsCopyWith<$Res>? get units {
+    if (_value.units == null) {
+      return null;
+    }
+
+    return $TransmissionSessionUnitsCopyWith<$Res>(_value.units!, (value) {
+      return _then(_value.copyWith(units: value) as $Val);
+    });
+  }
+}
+
+/// @nodoc
+abstract class _$$_TransmissionSessionCopyWith<$Res>
+    implements $TransmissionSessionCopyWith<$Res> {
+  factory _$$_TransmissionSessionCopyWith(_$_TransmissionSession value,
+          $Res Function(_$_TransmissionSession) then) =
+      __$$_TransmissionSessionCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call(
+      {@JsonKey(name: "alt-speed-down") int? altSpeedDown,
+      @JsonKey(name: "alt-speed-enabled") bool? altSpeedEnabled,
+      @JsonKey(name: "alt-speed-time-begin") int? altSpeedTimeBegin,
+      @JsonKey(name: "alt-speed-time-day") int? altSpeedTimeDay,
+      @JsonKey(name: "alt-speed-time-enabled") bool? altSpeedTimeEnabled,
+      @JsonKey(name: "alt-speed-time-end") int? altSpeedTimeEnd,
+      @JsonKey(name: "alt-speed-up") int? altSpeedUp,
+      @JsonKey(name: "blocklist-enabled") bool? blocklistEnabled,
+      @JsonKey(name: "blocklist-size") int? blocklistSize,
+      @JsonKey(name: "blocklist-url") String? blocklistUrl,
+      @JsonKey(name: "cache-size-mb") String? cacheSize,
+      @JsonKey(name: "config-dir") String? configDir,
+      @JsonKey(name: "default-trackers") String? defaultTrackers,
+      @JsonKey(name: "dht-enabled") bool? dhtEnabled,
+      @JsonKey(name: "download-dir") String? downloadDir,
+      @JsonKey(name: "download-queue-enabled") bool? downloadQueueEnabled,
+      @JsonKey(name: "download-queue-size") int? downloadQueueSize,
+      @JsonKey(name: "encryption") String? encryption,
+      @JsonKey(name: "idle-seeding-limit-enabled")
+      bool? idleSeedingLimitEnabled,
+      @JsonKey(name: "idle-seeding-limit") int? idleSeedingLimit,
+      @JsonKey(name: "incomplete-dir-enabled") bool? incompleteDirEnabled,
+      @JsonKey(name: "incomplete-dir") String? incompleteDir,
+      @JsonKey(name: "lpd-enabled") bool? lpdEnabled,
+      @JsonKey(name: "peer-limit-global") int? peerLimitGlobal,
+      @JsonKey(name: "peer-limit-per-torrent") int? peerLimitPerTorrent,
+      @JsonKey(name: "peer-port-random-on-start") bool? peerPortRandomOnStart,
+      @JsonKey(name: "peer-port") int? peerPort,
+      @JsonKey(name: "pex-enabled") bool? pexEnabled,
+      @JsonKey(name: "port-forwarding-enabled") bool? portForwardingEnabled,
+      @JsonKey(name: "queue-stalled-enabled") bool? queueStalledEnabled,
+      @JsonKey(name: "queue-stalled-minutes") int? queueStalledMinutes,
+      @JsonKey(name: "rename-partial-files") bool? renamePartialFiles,
+      @JsonKey(name: "rpc-version-minimum") int? rpcVersionMinimum,
+      @JsonKey(name: "rpc-version-semver") String? rpcVersionSemver,
+      @JsonKey(name: "rpc-version") int? rpcVersion,
+      @JsonKey(name: "script-torrent-added-enabled")
+      bool? scriptTorrentAddedEnabled,
+      @JsonKey(name: "script-torrent-added-filename")
+      String? scriptTorrentAddedFilename,
+      @JsonKey(name: "script-torrent-done-enabled")
+      bool? scriptTorrentDoneEnabled,
+      @JsonKey(name: "script-torrent-done-filename")
+      String? scriptTorrentDoneFilename,
+      @JsonKey(name: "script-torrent-done-seeding-enabled")
+      bool? scriptTorrentDoneSeedingEnabled,
+      @JsonKey(name: "script-torrent-done-seeding-filename")
+      String? scriptTorrentDoneSeedingFilename,
+      @JsonKey(name: "seed-queue-enabled") bool? seedQueueEnabled,
+      @JsonKey(name: "seed-queue-size") int? seedQueueSize,
+      double? seedRatioLimit,
+      bool? seedRatioLimited,
+      @JsonKey(name: "session-id") String? sessionId,
+      @JsonKey(name: "speed-limit-down-enabled") bool? speedLimitDownEnabled,
+      @JsonKey(name: "speed-limit-down") int? speedLimitDown,
+      @JsonKey(name: "speed-limit-up-enabled") bool? speedLimitUpEnabled,
+      @JsonKey(name: "speed-limit-up") int? speedLimitUp,
+      @JsonKey(name: "start-added-torrents") bool? startAddedTorrents,
+      @JsonKey(name: "trash-original-torrent-files")
+      bool? trashOriginalTorrentFiles,
+      @JsonKey(name: "units") TransmissionSessionUnits? units,
+      @JsonKey(name: "utp-enabled") bool? utpEnabled,
+      @JsonKey(name: "version") String? version});
+
+  @override
+  $TransmissionSessionUnitsCopyWith<$Res>? get units;
+}
+
+/// @nodoc
+class __$$_TransmissionSessionCopyWithImpl<$Res>
+    extends _$TransmissionSessionCopyWithImpl<$Res, _$_TransmissionSession>
+    implements _$$_TransmissionSessionCopyWith<$Res> {
+  __$$_TransmissionSessionCopyWithImpl(_$_TransmissionSession _value,
+      $Res Function(_$_TransmissionSession) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? altSpeedDown = freezed,
+    Object? altSpeedEnabled = freezed,
+    Object? altSpeedTimeBegin = freezed,
+    Object? altSpeedTimeDay = freezed,
+    Object? altSpeedTimeEnabled = freezed,
+    Object? altSpeedTimeEnd = freezed,
+    Object? altSpeedUp = freezed,
+    Object? blocklistEnabled = freezed,
+    Object? blocklistSize = freezed,
+    Object? blocklistUrl = freezed,
+    Object? cacheSize = freezed,
+    Object? configDir = freezed,
+    Object? defaultTrackers = freezed,
+    Object? dhtEnabled = freezed,
+    Object? downloadDir = freezed,
+    Object? downloadQueueEnabled = freezed,
+    Object? downloadQueueSize = freezed,
+    Object? encryption = freezed,
+    Object? idleSeedingLimitEnabled = freezed,
+    Object? idleSeedingLimit = freezed,
+    Object? incompleteDirEnabled = freezed,
+    Object? incompleteDir = freezed,
+    Object? lpdEnabled = freezed,
+    Object? peerLimitGlobal = freezed,
+    Object? peerLimitPerTorrent = freezed,
+    Object? peerPortRandomOnStart = freezed,
+    Object? peerPort = freezed,
+    Object? pexEnabled = freezed,
+    Object? portForwardingEnabled = freezed,
+    Object? queueStalledEnabled = freezed,
+    Object? queueStalledMinutes = freezed,
+    Object? renamePartialFiles = freezed,
+    Object? rpcVersionMinimum = freezed,
+    Object? rpcVersionSemver = freezed,
+    Object? rpcVersion = freezed,
+    Object? scriptTorrentAddedEnabled = freezed,
+    Object? scriptTorrentAddedFilename = freezed,
+    Object? scriptTorrentDoneEnabled = freezed,
+    Object? scriptTorrentDoneFilename = freezed,
+    Object? scriptTorrentDoneSeedingEnabled = freezed,
+    Object? scriptTorrentDoneSeedingFilename = freezed,
+    Object? seedQueueEnabled = freezed,
+    Object? seedQueueSize = freezed,
+    Object? seedRatioLimit = freezed,
+    Object? seedRatioLimited = freezed,
+    Object? sessionId = freezed,
+    Object? speedLimitDownEnabled = freezed,
+    Object? speedLimitDown = freezed,
+    Object? speedLimitUpEnabled = freezed,
+    Object? speedLimitUp = freezed,
+    Object? startAddedTorrents = freezed,
+    Object? trashOriginalTorrentFiles = freezed,
+    Object? units = freezed,
+    Object? utpEnabled = freezed,
+    Object? version = freezed,
+  }) {
+    return _then(_$_TransmissionSession(
+      altSpeedDown: freezed == altSpeedDown
+          ? _value.altSpeedDown
+          : altSpeedDown // ignore: cast_nullable_to_non_nullable
+              as int?,
+      altSpeedEnabled: freezed == altSpeedEnabled
+          ? _value.altSpeedEnabled
+          : altSpeedEnabled // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      altSpeedTimeBegin: freezed == altSpeedTimeBegin
+          ? _value.altSpeedTimeBegin
+          : altSpeedTimeBegin // ignore: cast_nullable_to_non_nullable
+              as int?,
+      altSpeedTimeDay: freezed == altSpeedTimeDay
+          ? _value.altSpeedTimeDay
+          : altSpeedTimeDay // ignore: cast_nullable_to_non_nullable
+              as int?,
+      altSpeedTimeEnabled: freezed == altSpeedTimeEnabled
+          ? _value.altSpeedTimeEnabled
+          : altSpeedTimeEnabled // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      altSpeedTimeEnd: freezed == altSpeedTimeEnd
+          ? _value.altSpeedTimeEnd
+          : altSpeedTimeEnd // ignore: cast_nullable_to_non_nullable
+              as int?,
+      altSpeedUp: freezed == altSpeedUp
+          ? _value.altSpeedUp
+          : altSpeedUp // ignore: cast_nullable_to_non_nullable
+              as int?,
+      blocklistEnabled: freezed == blocklistEnabled
+          ? _value.blocklistEnabled
+          : blocklistEnabled // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      blocklistSize: freezed == blocklistSize
+          ? _value.blocklistSize
+          : blocklistSize // ignore: cast_nullable_to_non_nullable
+              as int?,
+      blocklistUrl: freezed == blocklistUrl
+          ? _value.blocklistUrl
+          : blocklistUrl // ignore: cast_nullable_to_non_nullable
+              as String?,
+      cacheSize: freezed == cacheSize
+          ? _value.cacheSize
+          : cacheSize // ignore: cast_nullable_to_non_nullable
+              as String?,
+      configDir: freezed == configDir
+          ? _value.configDir
+          : configDir // ignore: cast_nullable_to_non_nullable
+              as String?,
+      defaultTrackers: freezed == defaultTrackers
+          ? _value.defaultTrackers
+          : defaultTrackers // ignore: cast_nullable_to_non_nullable
+              as String?,
+      dhtEnabled: freezed == dhtEnabled
+          ? _value.dhtEnabled
+          : dhtEnabled // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      downloadDir: freezed == downloadDir
+          ? _value.downloadDir
+          : downloadDir // ignore: cast_nullable_to_non_nullable
+              as String?,
+      downloadQueueEnabled: freezed == downloadQueueEnabled
+          ? _value.downloadQueueEnabled
+          : downloadQueueEnabled // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      downloadQueueSize: freezed == downloadQueueSize
+          ? _value.downloadQueueSize
+          : downloadQueueSize // ignore: cast_nullable_to_non_nullable
+              as int?,
+      encryption: freezed == encryption
+          ? _value.encryption
+          : encryption // ignore: cast_nullable_to_non_nullable
+              as String?,
+      idleSeedingLimitEnabled: freezed == idleSeedingLimitEnabled
+          ? _value.idleSeedingLimitEnabled
+          : idleSeedingLimitEnabled // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      idleSeedingLimit: freezed == idleSeedingLimit
+          ? _value.idleSeedingLimit
+          : idleSeedingLimit // ignore: cast_nullable_to_non_nullable
+              as int?,
+      incompleteDirEnabled: freezed == incompleteDirEnabled
+          ? _value.incompleteDirEnabled
+          : incompleteDirEnabled // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      incompleteDir: freezed == incompleteDir
+          ? _value.incompleteDir
+          : incompleteDir // ignore: cast_nullable_to_non_nullable
+              as String?,
+      lpdEnabled: freezed == lpdEnabled
+          ? _value.lpdEnabled
+          : lpdEnabled // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      peerLimitGlobal: freezed == peerLimitGlobal
+          ? _value.peerLimitGlobal
+          : peerLimitGlobal // ignore: cast_nullable_to_non_nullable
+              as int?,
+      peerLimitPerTorrent: freezed == peerLimitPerTorrent
+          ? _value.peerLimitPerTorrent
+          : peerLimitPerTorrent // ignore: cast_nullable_to_non_nullable
+              as int?,
+      peerPortRandomOnStart: freezed == peerPortRandomOnStart
+          ? _value.peerPortRandomOnStart
+          : peerPortRandomOnStart // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      peerPort: freezed == peerPort
+          ? _value.peerPort
+          : peerPort // ignore: cast_nullable_to_non_nullable
+              as int?,
+      pexEnabled: freezed == pexEnabled
+          ? _value.pexEnabled
+          : pexEnabled // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      portForwardingEnabled: freezed == portForwardingEnabled
+          ? _value.portForwardingEnabled
+          : portForwardingEnabled // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      queueStalledEnabled: freezed == queueStalledEnabled
+          ? _value.queueStalledEnabled
+          : queueStalledEnabled // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      queueStalledMinutes: freezed == queueStalledMinutes
+          ? _value.queueStalledMinutes
+          : queueStalledMinutes // ignore: cast_nullable_to_non_nullable
+              as int?,
+      renamePartialFiles: freezed == renamePartialFiles
+          ? _value.renamePartialFiles
+          : renamePartialFiles // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      rpcVersionMinimum: freezed == rpcVersionMinimum
+          ? _value.rpcVersionMinimum
+          : rpcVersionMinimum // ignore: cast_nullable_to_non_nullable
+              as int?,
+      rpcVersionSemver: freezed == rpcVersionSemver
+          ? _value.rpcVersionSemver
+          : rpcVersionSemver // ignore: cast_nullable_to_non_nullable
+              as String?,
+      rpcVersion: freezed == rpcVersion
+          ? _value.rpcVersion
+          : rpcVersion // ignore: cast_nullable_to_non_nullable
+              as int?,
+      scriptTorrentAddedEnabled: freezed == scriptTorrentAddedEnabled
+          ? _value.scriptTorrentAddedEnabled
+          : scriptTorrentAddedEnabled // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      scriptTorrentAddedFilename: freezed == scriptTorrentAddedFilename
+          ? _value.scriptTorrentAddedFilename
+          : scriptTorrentAddedFilename // ignore: cast_nullable_to_non_nullable
+              as String?,
+      scriptTorrentDoneEnabled: freezed == scriptTorrentDoneEnabled
+          ? _value.scriptTorrentDoneEnabled
+          : scriptTorrentDoneEnabled // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      scriptTorrentDoneFilename: freezed == scriptTorrentDoneFilename
+          ? _value.scriptTorrentDoneFilename
+          : scriptTorrentDoneFilename // ignore: cast_nullable_to_non_nullable
+              as String?,
+      scriptTorrentDoneSeedingEnabled: freezed ==
+              scriptTorrentDoneSeedingEnabled
+          ? _value.scriptTorrentDoneSeedingEnabled
+          : scriptTorrentDoneSeedingEnabled // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      scriptTorrentDoneSeedingFilename: freezed ==
+              scriptTorrentDoneSeedingFilename
+          ? _value.scriptTorrentDoneSeedingFilename
+          : scriptTorrentDoneSeedingFilename // ignore: cast_nullable_to_non_nullable
+              as String?,
+      seedQueueEnabled: freezed == seedQueueEnabled
+          ? _value.seedQueueEnabled
+          : seedQueueEnabled // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      seedQueueSize: freezed == seedQueueSize
+          ? _value.seedQueueSize
+          : seedQueueSize // ignore: cast_nullable_to_non_nullable
+              as int?,
+      seedRatioLimit: freezed == seedRatioLimit
+          ? _value.seedRatioLimit
+          : seedRatioLimit // ignore: cast_nullable_to_non_nullable
+              as double?,
+      seedRatioLimited: freezed == seedRatioLimited
+          ? _value.seedRatioLimited
+          : seedRatioLimited // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      sessionId: freezed == sessionId
+          ? _value.sessionId
+          : sessionId // ignore: cast_nullable_to_non_nullable
+              as String?,
+      speedLimitDownEnabled: freezed == speedLimitDownEnabled
+          ? _value.speedLimitDownEnabled
+          : speedLimitDownEnabled // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      speedLimitDown: freezed == speedLimitDown
+          ? _value.speedLimitDown
+          : speedLimitDown // ignore: cast_nullable_to_non_nullable
+              as int?,
+      speedLimitUpEnabled: freezed == speedLimitUpEnabled
+          ? _value.speedLimitUpEnabled
+          : speedLimitUpEnabled // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      speedLimitUp: freezed == speedLimitUp
+          ? _value.speedLimitUp
+          : speedLimitUp // ignore: cast_nullable_to_non_nullable
+              as int?,
+      startAddedTorrents: freezed == startAddedTorrents
+          ? _value.startAddedTorrents
+          : startAddedTorrents // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      trashOriginalTorrentFiles: freezed == trashOriginalTorrentFiles
+          ? _value.trashOriginalTorrentFiles
+          : trashOriginalTorrentFiles // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      units: freezed == units
+          ? _value.units
+          : units // ignore: cast_nullable_to_non_nullable
+              as TransmissionSessionUnits?,
+      utpEnabled: freezed == utpEnabled
+          ? _value.utpEnabled
+          : utpEnabled // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      version: freezed == version
+          ? _value.version
+          : version // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$_TransmissionSession implements _TransmissionSession {
+  const _$_TransmissionSession(
+      {@JsonKey(name: "alt-speed-down") required this.altSpeedDown,
+      @JsonKey(name: "alt-speed-enabled") required this.altSpeedEnabled,
+      @JsonKey(name: "alt-speed-time-begin") required this.altSpeedTimeBegin,
+      @JsonKey(name: "alt-speed-time-day") required this.altSpeedTimeDay,
+      @JsonKey(name: "alt-speed-time-enabled")
+      required this.altSpeedTimeEnabled,
+      @JsonKey(name: "alt-speed-time-end") required this.altSpeedTimeEnd,
+      @JsonKey(name: "alt-speed-up") required this.altSpeedUp,
+      @JsonKey(name: "blocklist-enabled") required this.blocklistEnabled,
+      @JsonKey(name: "blocklist-size") required this.blocklistSize,
+      @JsonKey(name: "blocklist-url") required this.blocklistUrl,
+      @JsonKey(name: "cache-size-mb") required this.cacheSize,
+      @JsonKey(name: "config-dir") required this.configDir,
+      @JsonKey(name: "default-trackers") required this.defaultTrackers,
+      @JsonKey(name: "dht-enabled") required this.dhtEnabled,
+      @JsonKey(name: "download-dir") required this.downloadDir,
+      @JsonKey(name: "download-queue-enabled")
+      required this.downloadQueueEnabled,
+      @JsonKey(name: "download-queue-size") required this.downloadQueueSize,
+      @JsonKey(name: "encryption") required this.encryption,
+      @JsonKey(name: "idle-seeding-limit-enabled")
+      required this.idleSeedingLimitEnabled,
+      @JsonKey(name: "idle-seeding-limit") required this.idleSeedingLimit,
+      @JsonKey(name: "incomplete-dir-enabled")
+      required this.incompleteDirEnabled,
+      @JsonKey(name: "incomplete-dir") required this.incompleteDir,
+      @JsonKey(name: "lpd-enabled") required this.lpdEnabled,
+      @JsonKey(name: "peer-limit-global") required this.peerLimitGlobal,
+      @JsonKey(name: "peer-limit-per-torrent")
+      required this.peerLimitPerTorrent,
+      @JsonKey(name: "peer-port-random-on-start")
+      required this.peerPortRandomOnStart,
+      @JsonKey(name: "peer-port") required this.peerPort,
+      @JsonKey(name: "pex-enabled") required this.pexEnabled,
+      @JsonKey(name: "port-forwarding-enabled")
+      required this.portForwardingEnabled,
+      @JsonKey(name: "queue-stalled-enabled") required this.queueStalledEnabled,
+      @JsonKey(name: "queue-stalled-minutes") required this.queueStalledMinutes,
+      @JsonKey(name: "rename-partial-files") required this.renamePartialFiles,
+      @JsonKey(name: "rpc-version-minimum") required this.rpcVersionMinimum,
+      @JsonKey(name: "rpc-version-semver") required this.rpcVersionSemver,
+      @JsonKey(name: "rpc-version") required this.rpcVersion,
+      @JsonKey(name: "script-torrent-added-enabled")
+      required this.scriptTorrentAddedEnabled,
+      @JsonKey(name: "script-torrent-added-filename")
+      required this.scriptTorrentAddedFilename,
+      @JsonKey(name: "script-torrent-done-enabled")
+      required this.scriptTorrentDoneEnabled,
+      @JsonKey(name: "script-torrent-done-filename")
+      required this.scriptTorrentDoneFilename,
+      @JsonKey(name: "script-torrent-done-seeding-enabled")
+      required this.scriptTorrentDoneSeedingEnabled,
+      @JsonKey(name: "script-torrent-done-seeding-filename")
+      required this.scriptTorrentDoneSeedingFilename,
+      @JsonKey(name: "seed-queue-enabled") required this.seedQueueEnabled,
+      @JsonKey(name: "seed-queue-size") required this.seedQueueSize,
+      required this.seedRatioLimit,
+      required this.seedRatioLimited,
+      @JsonKey(name: "session-id") required this.sessionId,
+      @JsonKey(name: "speed-limit-down-enabled")
+      required this.speedLimitDownEnabled,
+      @JsonKey(name: "speed-limit-down") required this.speedLimitDown,
+      @JsonKey(name: "speed-limit-up-enabled")
+      required this.speedLimitUpEnabled,
+      @JsonKey(name: "speed-limit-up") required this.speedLimitUp,
+      @JsonKey(name: "start-added-torrents") required this.startAddedTorrents,
+      @JsonKey(name: "trash-original-torrent-files")
+      required this.trashOriginalTorrentFiles,
+      @JsonKey(name: "units") required this.units,
+      @JsonKey(name: "utp-enabled") required this.utpEnabled,
+      @JsonKey(name: "version") required this.version});
+
+  factory _$_TransmissionSession.fromJson(Map<String, dynamic> json) =>
+      _$$_TransmissionSessionFromJson(json);
+
+  @override
+  @JsonKey(name: "alt-speed-down")
+  final int? altSpeedDown;
+  @override
+  @JsonKey(name: "alt-speed-enabled")
+  final bool? altSpeedEnabled;
+  @override
+  @JsonKey(name: "alt-speed-time-begin")
+  final int? altSpeedTimeBegin;
+  @override
+  @JsonKey(name: "alt-speed-time-day")
+  final int? altSpeedTimeDay;
+  @override
+  @JsonKey(name: "alt-speed-time-enabled")
+  final bool? altSpeedTimeEnabled;
+  @override
+  @JsonKey(name: "alt-speed-time-end")
+  final int? altSpeedTimeEnd;
+  @override
+  @JsonKey(name: "alt-speed-up")
+  final int? altSpeedUp;
+  @override
+  @JsonKey(name: "blocklist-enabled")
+  final bool? blocklistEnabled;
+  @override
+  @JsonKey(name: "blocklist-size")
+  final int? blocklistSize;
+  @override
+  @JsonKey(name: "blocklist-url")
+  final String? blocklistUrl;
+
+  /// MB
+  @override
+  @JsonKey(name: "cache-size-mb")
+  final String? cacheSize;
+  @override
+  @JsonKey(name: "config-dir")
+  final String? configDir;
+  @override
+  @JsonKey(name: "default-trackers")
+  final String? defaultTrackers;
+  @override
+  @JsonKey(name: "dht-enabled")
+  final bool? dhtEnabled;
+  @override
+  @JsonKey(name: "download-dir")
+  final String? downloadDir;
+  @override
+  @JsonKey(name: "download-queue-enabled")
+  final bool? downloadQueueEnabled;
+  @override
+  @JsonKey(name: "download-queue-size")
+  final int? downloadQueueSize;
+  @override
+  @JsonKey(name: "encryption")
+  final String? encryption;
+  @override
+  @JsonKey(name: "idle-seeding-limit-enabled")
+  final bool? idleSeedingLimitEnabled;
+  @override
+  @JsonKey(name: "idle-seeding-limit")
+  final int? idleSeedingLimit;
+  @override
+  @JsonKey(name: "incomplete-dir-enabled")
+  final bool? incompleteDirEnabled;
+  @override
+  @JsonKey(name: "incomplete-dir")
+  final String? incompleteDir;
+  @override
+  @JsonKey(name: "lpd-enabled")
+  final bool? lpdEnabled;
+  @override
+  @JsonKey(name: "peer-limit-global")
+  final int? peerLimitGlobal;
+  @override
+  @JsonKey(name: "peer-limit-per-torrent")
+  final int? peerLimitPerTorrent;
+  @override
+  @JsonKey(name: "peer-port-random-on-start")
+  final bool? peerPortRandomOnStart;
+  @override
+  @JsonKey(name: "peer-port")
+  final int? peerPort;
+  @override
+  @JsonKey(name: "pex-enabled")
+  final bool? pexEnabled;
+  @override
+  @JsonKey(name: "port-forwarding-enabled")
+  final bool? portForwardingEnabled;
+  @override
+  @JsonKey(name: "queue-stalled-enabled")
+  final bool? queueStalledEnabled;
+  @override
+  @JsonKey(name: "queue-stalled-minutes")
+  final int? queueStalledMinutes;
+  @override
+  @JsonKey(name: "rename-partial-files")
+  final bool? renamePartialFiles;
+  @override
+  @JsonKey(name: "rpc-version-minimum")
+  final int? rpcVersionMinimum;
+  @override
+  @JsonKey(name: "rpc-version-semver")
+  final String? rpcVersionSemver;
+  @override
+  @JsonKey(name: "rpc-version")
+  final int? rpcVersion;
+  @override
+  @JsonKey(name: "script-torrent-added-enabled")
+  final bool? scriptTorrentAddedEnabled;
+  @override
+  @JsonKey(name: "script-torrent-added-filename")
+  final String? scriptTorrentAddedFilename;
+  @override
+  @JsonKey(name: "script-torrent-done-enabled")
+  final bool? scriptTorrentDoneEnabled;
+  @override
+  @JsonKey(name: "script-torrent-done-filename")
+  final String? scriptTorrentDoneFilename;
+  @override
+  @JsonKey(name: "script-torrent-done-seeding-enabled")
+  final bool? scriptTorrentDoneSeedingEnabled;
+  @override
+  @JsonKey(name: "script-torrent-done-seeding-filename")
+  final String? scriptTorrentDoneSeedingFilename;
+  @override
+  @JsonKey(name: "seed-queue-enabled")
+  final bool? seedQueueEnabled;
+  @override
+  @JsonKey(name: "seed-queue-size")
+  final int? seedQueueSize;
+  @override
+  final double? seedRatioLimit;
+  @override
+  final bool? seedRatioLimited;
+  @override
+  @JsonKey(name: "session-id")
+  final String? sessionId;
+  @override
+  @JsonKey(name: "speed-limit-down-enabled")
+  final bool? speedLimitDownEnabled;
+  @override
+  @JsonKey(name: "speed-limit-down")
+  final int? speedLimitDown;
+  @override
+  @JsonKey(name: "speed-limit-up-enabled")
+  final bool? speedLimitUpEnabled;
+  @override
+  @JsonKey(name: "speed-limit-up")
+  final int? speedLimitUp;
+  @override
+  @JsonKey(name: "start-added-torrents")
+  final bool? startAddedTorrents;
+  @override
+  @JsonKey(name: "trash-original-torrent-files")
+  final bool? trashOriginalTorrentFiles;
+  @override
+  @JsonKey(name: "units")
+  final TransmissionSessionUnits? units;
+  @override
+  @JsonKey(name: "utp-enabled")
+  final bool? utpEnabled;
+  @override
+  @JsonKey(name: "version")
+  final String? version;
+
+  @override
+  String toString() {
+    return 'TransmissionSession(altSpeedDown: $altSpeedDown, altSpeedEnabled: $altSpeedEnabled, altSpeedTimeBegin: $altSpeedTimeBegin, altSpeedTimeDay: $altSpeedTimeDay, altSpeedTimeEnabled: $altSpeedTimeEnabled, altSpeedTimeEnd: $altSpeedTimeEnd, altSpeedUp: $altSpeedUp, blocklistEnabled: $blocklistEnabled, blocklistSize: $blocklistSize, blocklistUrl: $blocklistUrl, cacheSize: $cacheSize, configDir: $configDir, defaultTrackers: $defaultTrackers, dhtEnabled: $dhtEnabled, downloadDir: $downloadDir, downloadQueueEnabled: $downloadQueueEnabled, downloadQueueSize: $downloadQueueSize, encryption: $encryption, idleSeedingLimitEnabled: $idleSeedingLimitEnabled, idleSeedingLimit: $idleSeedingLimit, incompleteDirEnabled: $incompleteDirEnabled, incompleteDir: $incompleteDir, lpdEnabled: $lpdEnabled, peerLimitGlobal: $peerLimitGlobal, peerLimitPerTorrent: $peerLimitPerTorrent, peerPortRandomOnStart: $peerPortRandomOnStart, peerPort: $peerPort, pexEnabled: $pexEnabled, portForwardingEnabled: $portForwardingEnabled, queueStalledEnabled: $queueStalledEnabled, queueStalledMinutes: $queueStalledMinutes, renamePartialFiles: $renamePartialFiles, rpcVersionMinimum: $rpcVersionMinimum, rpcVersionSemver: $rpcVersionSemver, rpcVersion: $rpcVersion, scriptTorrentAddedEnabled: $scriptTorrentAddedEnabled, scriptTorrentAddedFilename: $scriptTorrentAddedFilename, scriptTorrentDoneEnabled: $scriptTorrentDoneEnabled, scriptTorrentDoneFilename: $scriptTorrentDoneFilename, scriptTorrentDoneSeedingEnabled: $scriptTorrentDoneSeedingEnabled, scriptTorrentDoneSeedingFilename: $scriptTorrentDoneSeedingFilename, seedQueueEnabled: $seedQueueEnabled, seedQueueSize: $seedQueueSize, seedRatioLimit: $seedRatioLimit, seedRatioLimited: $seedRatioLimited, sessionId: $sessionId, speedLimitDownEnabled: $speedLimitDownEnabled, speedLimitDown: $speedLimitDown, speedLimitUpEnabled: $speedLimitUpEnabled, speedLimitUp: $speedLimitUp, startAddedTorrents: $startAddedTorrents, trashOriginalTorrentFiles: $trashOriginalTorrentFiles, units: $units, utpEnabled: $utpEnabled, version: $version)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_TransmissionSession &&
+            (identical(other.altSpeedDown, altSpeedDown) ||
+                other.altSpeedDown == altSpeedDown) &&
+            (identical(other.altSpeedEnabled, altSpeedEnabled) ||
+                other.altSpeedEnabled == altSpeedEnabled) &&
+            (identical(other.altSpeedTimeBegin, altSpeedTimeBegin) ||
+                other.altSpeedTimeBegin == altSpeedTimeBegin) &&
+            (identical(other.altSpeedTimeDay, altSpeedTimeDay) ||
+                other.altSpeedTimeDay == altSpeedTimeDay) &&
+            (identical(other.altSpeedTimeEnabled, altSpeedTimeEnabled) ||
+                other.altSpeedTimeEnabled == altSpeedTimeEnabled) &&
+            (identical(other.altSpeedTimeEnd, altSpeedTimeEnd) ||
+                other.altSpeedTimeEnd == altSpeedTimeEnd) &&
+            (identical(other.altSpeedUp, altSpeedUp) ||
+                other.altSpeedUp == altSpeedUp) &&
+            (identical(other.blocklistEnabled, blocklistEnabled) ||
+                other.blocklistEnabled == blocklistEnabled) &&
+            (identical(other.blocklistSize, blocklistSize) ||
+                other.blocklistSize == blocklistSize) &&
+            (identical(other.blocklistUrl, blocklistUrl) ||
+                other.blocklistUrl == blocklistUrl) &&
+            (identical(other.cacheSize, cacheSize) ||
+                other.cacheSize == cacheSize) &&
+            (identical(other.configDir, configDir) ||
+                other.configDir == configDir) &&
+            (identical(other.defaultTrackers, defaultTrackers) ||
+                other.defaultTrackers == defaultTrackers) &&
+            (identical(other.dhtEnabled, dhtEnabled) ||
+                other.dhtEnabled == dhtEnabled) &&
+            (identical(other.downloadDir, downloadDir) ||
+                other.downloadDir == downloadDir) &&
+            (identical(other.downloadQueueEnabled, downloadQueueEnabled) ||
+                other.downloadQueueEnabled == downloadQueueEnabled) &&
+            (identical(other.downloadQueueSize, downloadQueueSize) ||
+                other.downloadQueueSize == downloadQueueSize) &&
+            (identical(other.encryption, encryption) ||
+                other.encryption == encryption) &&
+            (identical(other.idleSeedingLimitEnabled, idleSeedingLimitEnabled) ||
+                other.idleSeedingLimitEnabled == idleSeedingLimitEnabled) &&
+            (identical(other.idleSeedingLimit, idleSeedingLimit) ||
+                other.idleSeedingLimit == idleSeedingLimit) &&
+            (identical(other.incompleteDirEnabled, incompleteDirEnabled) ||
+                other.incompleteDirEnabled == incompleteDirEnabled) &&
+            (identical(other.incompleteDir, incompleteDir) ||
+                other.incompleteDir == incompleteDir) &&
+            (identical(other.lpdEnabled, lpdEnabled) ||
+                other.lpdEnabled == lpdEnabled) &&
+            (identical(other.peerLimitGlobal, peerLimitGlobal) ||
+                other.peerLimitGlobal == peerLimitGlobal) &&
+            (identical(other.peerLimitPerTorrent, peerLimitPerTorrent) ||
+                other.peerLimitPerTorrent == peerLimitPerTorrent) &&
+            (identical(other.peerPortRandomOnStart, peerPortRandomOnStart) ||
+                other.peerPortRandomOnStart == peerPortRandomOnStart) &&
+            (identical(other.peerPort, peerPort) ||
+                other.peerPort == peerPort) &&
+            (identical(other.pexEnabled, pexEnabled) ||
+                other.pexEnabled == pexEnabled) &&
+            (identical(other.portForwardingEnabled, portForwardingEnabled) ||
+                other.portForwardingEnabled == portForwardingEnabled) &&
+            (identical(other.queueStalledEnabled, queueStalledEnabled) ||
+                other.queueStalledEnabled == queueStalledEnabled) &&
+            (identical(other.queueStalledMinutes, queueStalledMinutes) ||
+                other.queueStalledMinutes == queueStalledMinutes) &&
+            (identical(other.renamePartialFiles, renamePartialFiles) ||
+                other.renamePartialFiles == renamePartialFiles) &&
+            (identical(other.rpcVersionMinimum, rpcVersionMinimum) ||
+                other.rpcVersionMinimum == rpcVersionMinimum) &&
+            (identical(other.rpcVersionSemver, rpcVersionSemver) ||
+                other.rpcVersionSemver == rpcVersionSemver) &&
+            (identical(other.rpcVersion, rpcVersion) ||
+                other.rpcVersion == rpcVersion) &&
+            (identical(other.scriptTorrentAddedEnabled, scriptTorrentAddedEnabled) ||
+                other.scriptTorrentAddedEnabled == scriptTorrentAddedEnabled) &&
+            (identical(other.scriptTorrentAddedFilename, scriptTorrentAddedFilename) ||
+                other.scriptTorrentAddedFilename ==
+                    scriptTorrentAddedFilename) &&
+            (identical(other.scriptTorrentDoneEnabled, scriptTorrentDoneEnabled) ||
+                other.scriptTorrentDoneEnabled == scriptTorrentDoneEnabled) &&
+            (identical(other.scriptTorrentDoneFilename, scriptTorrentDoneFilename) || other.scriptTorrentDoneFilename == scriptTorrentDoneFilename) &&
+            (identical(other.scriptTorrentDoneSeedingEnabled, scriptTorrentDoneSeedingEnabled) || other.scriptTorrentDoneSeedingEnabled == scriptTorrentDoneSeedingEnabled) &&
+            (identical(other.scriptTorrentDoneSeedingFilename, scriptTorrentDoneSeedingFilename) || other.scriptTorrentDoneSeedingFilename == scriptTorrentDoneSeedingFilename) &&
+            (identical(other.seedQueueEnabled, seedQueueEnabled) || other.seedQueueEnabled == seedQueueEnabled) &&
+            (identical(other.seedQueueSize, seedQueueSize) || other.seedQueueSize == seedQueueSize) &&
+            (identical(other.seedRatioLimit, seedRatioLimit) || other.seedRatioLimit == seedRatioLimit) &&
+            (identical(other.seedRatioLimited, seedRatioLimited) || other.seedRatioLimited == seedRatioLimited) &&
+            (identical(other.sessionId, sessionId) || other.sessionId == sessionId) &&
+            (identical(other.speedLimitDownEnabled, speedLimitDownEnabled) || other.speedLimitDownEnabled == speedLimitDownEnabled) &&
+            (identical(other.speedLimitDown, speedLimitDown) || other.speedLimitDown == speedLimitDown) &&
+            (identical(other.speedLimitUpEnabled, speedLimitUpEnabled) || other.speedLimitUpEnabled == speedLimitUpEnabled) &&
+            (identical(other.speedLimitUp, speedLimitUp) || other.speedLimitUp == speedLimitUp) &&
+            (identical(other.startAddedTorrents, startAddedTorrents) || other.startAddedTorrents == startAddedTorrents) &&
+            (identical(other.trashOriginalTorrentFiles, trashOriginalTorrentFiles) || other.trashOriginalTorrentFiles == trashOriginalTorrentFiles) &&
+            (identical(other.units, units) || other.units == units) &&
+            (identical(other.utpEnabled, utpEnabled) || other.utpEnabled == utpEnabled) &&
+            (identical(other.version, version) || other.version == version));
+  }
+
+  @JsonKey(ignore: true)
+  @override
+  int get hashCode => Object.hashAll([
+        runtimeType,
+        altSpeedDown,
+        altSpeedEnabled,
+        altSpeedTimeBegin,
+        altSpeedTimeDay,
+        altSpeedTimeEnabled,
+        altSpeedTimeEnd,
+        altSpeedUp,
+        blocklistEnabled,
+        blocklistSize,
+        blocklistUrl,
+        cacheSize,
+        configDir,
+        defaultTrackers,
+        dhtEnabled,
+        downloadDir,
+        downloadQueueEnabled,
+        downloadQueueSize,
+        encryption,
+        idleSeedingLimitEnabled,
+        idleSeedingLimit,
+        incompleteDirEnabled,
+        incompleteDir,
+        lpdEnabled,
+        peerLimitGlobal,
+        peerLimitPerTorrent,
+        peerPortRandomOnStart,
+        peerPort,
+        pexEnabled,
+        portForwardingEnabled,
+        queueStalledEnabled,
+        queueStalledMinutes,
+        renamePartialFiles,
+        rpcVersionMinimum,
+        rpcVersionSemver,
+        rpcVersion,
+        scriptTorrentAddedEnabled,
+        scriptTorrentAddedFilename,
+        scriptTorrentDoneEnabled,
+        scriptTorrentDoneFilename,
+        scriptTorrentDoneSeedingEnabled,
+        scriptTorrentDoneSeedingFilename,
+        seedQueueEnabled,
+        seedQueueSize,
+        seedRatioLimit,
+        seedRatioLimited,
+        sessionId,
+        speedLimitDownEnabled,
+        speedLimitDown,
+        speedLimitUpEnabled,
+        speedLimitUp,
+        startAddedTorrents,
+        trashOriginalTorrentFiles,
+        units,
+        utpEnabled,
+        version
+      ]);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_TransmissionSessionCopyWith<_$_TransmissionSession> get copyWith =>
+      __$$_TransmissionSessionCopyWithImpl<_$_TransmissionSession>(
+          this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$_TransmissionSessionToJson(
+      this,
+    );
+  }
+}
+
+abstract class _TransmissionSession implements TransmissionSession {
+  const factory _TransmissionSession(
+      {@JsonKey(name: "alt-speed-down") required final int? altSpeedDown,
+      @JsonKey(name: "alt-speed-enabled") required final bool? altSpeedEnabled,
+      @JsonKey(name: "alt-speed-time-begin")
+      required final int? altSpeedTimeBegin,
+      @JsonKey(name: "alt-speed-time-day") required final int? altSpeedTimeDay,
+      @JsonKey(name: "alt-speed-time-enabled")
+      required final bool? altSpeedTimeEnabled,
+      @JsonKey(name: "alt-speed-time-end") required final int? altSpeedTimeEnd,
+      @JsonKey(name: "alt-speed-up") required final int? altSpeedUp,
+      @JsonKey(name: "blocklist-enabled") required final bool? blocklistEnabled,
+      @JsonKey(name: "blocklist-size") required final int? blocklistSize,
+      @JsonKey(name: "blocklist-url") required final String? blocklistUrl,
+      @JsonKey(name: "cache-size-mb") required final String? cacheSize,
+      @JsonKey(name: "config-dir") required final String? configDir,
+      @JsonKey(name: "default-trackers") required final String? defaultTrackers,
+      @JsonKey(name: "dht-enabled") required final bool? dhtEnabled,
+      @JsonKey(name: "download-dir") required final String? downloadDir,
+      @JsonKey(name: "download-queue-enabled")
+      required final bool? downloadQueueEnabled,
+      @JsonKey(name: "download-queue-size")
+      required final int? downloadQueueSize,
+      @JsonKey(name: "encryption") required final String? encryption,
+      @JsonKey(name: "idle-seeding-limit-enabled")
+      required final bool? idleSeedingLimitEnabled,
+      @JsonKey(name: "idle-seeding-limit") required final int? idleSeedingLimit,
+      @JsonKey(name: "incomplete-dir-enabled")
+      required final bool? incompleteDirEnabled,
+      @JsonKey(name: "incomplete-dir") required final String? incompleteDir,
+      @JsonKey(name: "lpd-enabled") required final bool? lpdEnabled,
+      @JsonKey(name: "peer-limit-global") required final int? peerLimitGlobal,
+      @JsonKey(name: "peer-limit-per-torrent")
+      required final int? peerLimitPerTorrent,
+      @JsonKey(name: "peer-port-random-on-start")
+      required final bool? peerPortRandomOnStart,
+      @JsonKey(name: "peer-port") required final int? peerPort,
+      @JsonKey(name: "pex-enabled") required final bool? pexEnabled,
+      @JsonKey(name: "port-forwarding-enabled")
+      required final bool? portForwardingEnabled,
+      @JsonKey(name: "queue-stalled-enabled")
+      required final bool? queueStalledEnabled,
+      @JsonKey(name: "queue-stalled-minutes")
+      required final int? queueStalledMinutes,
+      @JsonKey(name: "rename-partial-files")
+      required final bool? renamePartialFiles,
+      @JsonKey(name: "rpc-version-minimum")
+      required final int? rpcVersionMinimum,
+      @JsonKey(name: "rpc-version-semver")
+      required final String? rpcVersionSemver,
+      @JsonKey(name: "rpc-version") required final int? rpcVersion,
+      @JsonKey(name: "script-torrent-added-enabled")
+      required final bool? scriptTorrentAddedEnabled,
+      @JsonKey(name: "script-torrent-added-filename")
+      required final String? scriptTorrentAddedFilename,
+      @JsonKey(name: "script-torrent-done-enabled")
+      required final bool? scriptTorrentDoneEnabled,
+      @JsonKey(name: "script-torrent-done-filename")
+      required final String? scriptTorrentDoneFilename,
+      @JsonKey(name: "script-torrent-done-seeding-enabled")
+      required final bool? scriptTorrentDoneSeedingEnabled,
+      @JsonKey(name: "script-torrent-done-seeding-filename")
+      required final String? scriptTorrentDoneSeedingFilename,
+      @JsonKey(name: "seed-queue-enabled")
+      required final bool? seedQueueEnabled,
+      @JsonKey(name: "seed-queue-size") required final int? seedQueueSize,
+      required final double? seedRatioLimit,
+      required final bool? seedRatioLimited,
+      @JsonKey(name: "session-id") required final String? sessionId,
+      @JsonKey(name: "speed-limit-down-enabled")
+      required final bool? speedLimitDownEnabled,
+      @JsonKey(name: "speed-limit-down") required final int? speedLimitDown,
+      @JsonKey(name: "speed-limit-up-enabled")
+      required final bool? speedLimitUpEnabled,
+      @JsonKey(name: "speed-limit-up") required final int? speedLimitUp,
+      @JsonKey(name: "start-added-torrents")
+      required final bool? startAddedTorrents,
+      @JsonKey(name: "trash-original-torrent-files")
+      required final bool? trashOriginalTorrentFiles,
+      @JsonKey(name: "units") required final TransmissionSessionUnits? units,
+      @JsonKey(name: "utp-enabled") required final bool? utpEnabled,
+      @JsonKey(name: "version")
+      required final String? version}) = _$_TransmissionSession;
+
+  factory _TransmissionSession.fromJson(Map<String, dynamic> json) =
+      _$_TransmissionSession.fromJson;
+
+  @override
+  @JsonKey(name: "alt-speed-down")
+  int? get altSpeedDown;
+  @override
+  @JsonKey(name: "alt-speed-enabled")
+  bool? get altSpeedEnabled;
+  @override
+  @JsonKey(name: "alt-speed-time-begin")
+  int? get altSpeedTimeBegin;
+  @override
+  @JsonKey(name: "alt-speed-time-day")
+  int? get altSpeedTimeDay;
+  @override
+  @JsonKey(name: "alt-speed-time-enabled")
+  bool? get altSpeedTimeEnabled;
+  @override
+  @JsonKey(name: "alt-speed-time-end")
+  int? get altSpeedTimeEnd;
+  @override
+  @JsonKey(name: "alt-speed-up")
+  int? get altSpeedUp;
+  @override
+  @JsonKey(name: "blocklist-enabled")
+  bool? get blocklistEnabled;
+  @override
+  @JsonKey(name: "blocklist-size")
+  int? get blocklistSize;
+  @override
+  @JsonKey(name: "blocklist-url")
+  String? get blocklistUrl;
+  @override
+
+  /// MB
+  @JsonKey(name: "cache-size-mb")
+  String? get cacheSize;
+  @override
+  @JsonKey(name: "config-dir")
+  String? get configDir;
+  @override
+  @JsonKey(name: "default-trackers")
+  String? get defaultTrackers;
+  @override
+  @JsonKey(name: "dht-enabled")
+  bool? get dhtEnabled;
+  @override
+  @JsonKey(name: "download-dir")
+  String? get downloadDir;
+  @override
+  @JsonKey(name: "download-queue-enabled")
+  bool? get downloadQueueEnabled;
+  @override
+  @JsonKey(name: "download-queue-size")
+  int? get downloadQueueSize;
+  @override
+  @JsonKey(name: "encryption")
+  String? get encryption;
+  @override
+  @JsonKey(name: "idle-seeding-limit-enabled")
+  bool? get idleSeedingLimitEnabled;
+  @override
+  @JsonKey(name: "idle-seeding-limit")
+  int? get idleSeedingLimit;
+  @override
+  @JsonKey(name: "incomplete-dir-enabled")
+  bool? get incompleteDirEnabled;
+  @override
+  @JsonKey(name: "incomplete-dir")
+  String? get incompleteDir;
+  @override
+  @JsonKey(name: "lpd-enabled")
+  bool? get lpdEnabled;
+  @override
+  @JsonKey(name: "peer-limit-global")
+  int? get peerLimitGlobal;
+  @override
+  @JsonKey(name: "peer-limit-per-torrent")
+  int? get peerLimitPerTorrent;
+  @override
+  @JsonKey(name: "peer-port-random-on-start")
+  bool? get peerPortRandomOnStart;
+  @override
+  @JsonKey(name: "peer-port")
+  int? get peerPort;
+  @override
+  @JsonKey(name: "pex-enabled")
+  bool? get pexEnabled;
+  @override
+  @JsonKey(name: "port-forwarding-enabled")
+  bool? get portForwardingEnabled;
+  @override
+  @JsonKey(name: "queue-stalled-enabled")
+  bool? get queueStalledEnabled;
+  @override
+  @JsonKey(name: "queue-stalled-minutes")
+  int? get queueStalledMinutes;
+  @override
+  @JsonKey(name: "rename-partial-files")
+  bool? get renamePartialFiles;
+  @override
+  @JsonKey(name: "rpc-version-minimum")
+  int? get rpcVersionMinimum;
+  @override
+  @JsonKey(name: "rpc-version-semver")
+  String? get rpcVersionSemver;
+  @override
+  @JsonKey(name: "rpc-version")
+  int? get rpcVersion;
+  @override
+  @JsonKey(name: "script-torrent-added-enabled")
+  bool? get scriptTorrentAddedEnabled;
+  @override
+  @JsonKey(name: "script-torrent-added-filename")
+  String? get scriptTorrentAddedFilename;
+  @override
+  @JsonKey(name: "script-torrent-done-enabled")
+  bool? get scriptTorrentDoneEnabled;
+  @override
+  @JsonKey(name: "script-torrent-done-filename")
+  String? get scriptTorrentDoneFilename;
+  @override
+  @JsonKey(name: "script-torrent-done-seeding-enabled")
+  bool? get scriptTorrentDoneSeedingEnabled;
+  @override
+  @JsonKey(name: "script-torrent-done-seeding-filename")
+  String? get scriptTorrentDoneSeedingFilename;
+  @override
+  @JsonKey(name: "seed-queue-enabled")
+  bool? get seedQueueEnabled;
+  @override
+  @JsonKey(name: "seed-queue-size")
+  int? get seedQueueSize;
+  @override
+  double? get seedRatioLimit;
+  @override
+  bool? get seedRatioLimited;
+  @override
+  @JsonKey(name: "session-id")
+  String? get sessionId;
+  @override
+  @JsonKey(name: "speed-limit-down-enabled")
+  bool? get speedLimitDownEnabled;
+  @override
+  @JsonKey(name: "speed-limit-down")
+  int? get speedLimitDown;
+  @override
+  @JsonKey(name: "speed-limit-up-enabled")
+  bool? get speedLimitUpEnabled;
+  @override
+  @JsonKey(name: "speed-limit-up")
+  int? get speedLimitUp;
+  @override
+  @JsonKey(name: "start-added-torrents")
+  bool? get startAddedTorrents;
+  @override
+  @JsonKey(name: "trash-original-torrent-files")
+  bool? get trashOriginalTorrentFiles;
+  @override
+  @JsonKey(name: "units")
+  TransmissionSessionUnits? get units;
+  @override
+  @JsonKey(name: "utp-enabled")
+  bool? get utpEnabled;
+  @override
+  @JsonKey(name: "version")
+  String? get version;
+  @override
+  @JsonKey(ignore: true)
+  _$$_TransmissionSessionCopyWith<_$_TransmissionSession> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+TransmissionSessionUnits _$TransmissionSessionUnitsFromJson(
+    Map<String, dynamic> json) {
+  return _TransmissionSessionUnits.fromJson(json);
+}
+
+/// @nodoc
+mixin _$TransmissionSessionUnits {
+  @JsonKey(name: "speed-units")
+  List<String> get speedUnits => throw _privateConstructorUsedError;
+  @JsonKey(name: "speed-bytes")
+  int get speedBytes => throw _privateConstructorUsedError;
+  @JsonKey(name: "size-units")
+  List<String> get sizeUnits => throw _privateConstructorUsedError;
+  @JsonKey(name: "size-bytes")
+  int get sizeBytes => throw _privateConstructorUsedError;
+  @JsonKey(name: "memory-units")
+  List<String> get memoryUnits => throw _privateConstructorUsedError;
+  @JsonKey(name: "memory-bytes")
+  int get memoryBytes => throw _privateConstructorUsedError;
+
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $TransmissionSessionUnitsCopyWith<TransmissionSessionUnits> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $TransmissionSessionUnitsCopyWith<$Res> {
+  factory $TransmissionSessionUnitsCopyWith(TransmissionSessionUnits value,
+          $Res Function(TransmissionSessionUnits) then) =
+      _$TransmissionSessionUnitsCopyWithImpl<$Res, TransmissionSessionUnits>;
+  @useResult
+  $Res call(
+      {@JsonKey(name: "speed-units") List<String> speedUnits,
+      @JsonKey(name: "speed-bytes") int speedBytes,
+      @JsonKey(name: "size-units") List<String> sizeUnits,
+      @JsonKey(name: "size-bytes") int sizeBytes,
+      @JsonKey(name: "memory-units") List<String> memoryUnits,
+      @JsonKey(name: "memory-bytes") int memoryBytes});
+}
+
+/// @nodoc
+class _$TransmissionSessionUnitsCopyWithImpl<$Res,
+        $Val extends TransmissionSessionUnits>
+    implements $TransmissionSessionUnitsCopyWith<$Res> {
+  _$TransmissionSessionUnitsCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? speedUnits = null,
+    Object? speedBytes = null,
+    Object? sizeUnits = null,
+    Object? sizeBytes = null,
+    Object? memoryUnits = null,
+    Object? memoryBytes = null,
+  }) {
+    return _then(_value.copyWith(
+      speedUnits: null == speedUnits
+          ? _value.speedUnits
+          : speedUnits // ignore: cast_nullable_to_non_nullable
+              as List<String>,
+      speedBytes: null == speedBytes
+          ? _value.speedBytes
+          : speedBytes // ignore: cast_nullable_to_non_nullable
+              as int,
+      sizeUnits: null == sizeUnits
+          ? _value.sizeUnits
+          : sizeUnits // ignore: cast_nullable_to_non_nullable
+              as List<String>,
+      sizeBytes: null == sizeBytes
+          ? _value.sizeBytes
+          : sizeBytes // ignore: cast_nullable_to_non_nullable
+              as int,
+      memoryUnits: null == memoryUnits
+          ? _value.memoryUnits
+          : memoryUnits // ignore: cast_nullable_to_non_nullable
+              as List<String>,
+      memoryBytes: null == memoryBytes
+          ? _value.memoryBytes
+          : memoryBytes // ignore: cast_nullable_to_non_nullable
+              as int,
+    ) as $Val);
+  }
+}
+
+/// @nodoc
+abstract class _$$_TransmissionSessionUnitsCopyWith<$Res>
+    implements $TransmissionSessionUnitsCopyWith<$Res> {
+  factory _$$_TransmissionSessionUnitsCopyWith(
+          _$_TransmissionSessionUnits value,
+          $Res Function(_$_TransmissionSessionUnits) then) =
+      __$$_TransmissionSessionUnitsCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call(
+      {@JsonKey(name: "speed-units") List<String> speedUnits,
+      @JsonKey(name: "speed-bytes") int speedBytes,
+      @JsonKey(name: "size-units") List<String> sizeUnits,
+      @JsonKey(name: "size-bytes") int sizeBytes,
+      @JsonKey(name: "memory-units") List<String> memoryUnits,
+      @JsonKey(name: "memory-bytes") int memoryBytes});
+}
+
+/// @nodoc
+class __$$_TransmissionSessionUnitsCopyWithImpl<$Res>
+    extends _$TransmissionSessionUnitsCopyWithImpl<$Res,
+        _$_TransmissionSessionUnits>
+    implements _$$_TransmissionSessionUnitsCopyWith<$Res> {
+  __$$_TransmissionSessionUnitsCopyWithImpl(_$_TransmissionSessionUnits _value,
+      $Res Function(_$_TransmissionSessionUnits) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? speedUnits = null,
+    Object? speedBytes = null,
+    Object? sizeUnits = null,
+    Object? sizeBytes = null,
+    Object? memoryUnits = null,
+    Object? memoryBytes = null,
+  }) {
+    return _then(_$_TransmissionSessionUnits(
+      speedUnits: null == speedUnits
+          ? _value._speedUnits
+          : speedUnits // ignore: cast_nullable_to_non_nullable
+              as List<String>,
+      speedBytes: null == speedBytes
+          ? _value.speedBytes
+          : speedBytes // ignore: cast_nullable_to_non_nullable
+              as int,
+      sizeUnits: null == sizeUnits
+          ? _value._sizeUnits
+          : sizeUnits // ignore: cast_nullable_to_non_nullable
+              as List<String>,
+      sizeBytes: null == sizeBytes
+          ? _value.sizeBytes
+          : sizeBytes // ignore: cast_nullable_to_non_nullable
+              as int,
+      memoryUnits: null == memoryUnits
+          ? _value._memoryUnits
+          : memoryUnits // ignore: cast_nullable_to_non_nullable
+              as List<String>,
+      memoryBytes: null == memoryBytes
+          ? _value.memoryBytes
+          : memoryBytes // ignore: cast_nullable_to_non_nullable
+              as int,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$_TransmissionSessionUnits implements _TransmissionSessionUnits {
+  const _$_TransmissionSessionUnits(
+      {@JsonKey(name: "speed-units") required final List<String> speedUnits,
+      @JsonKey(name: "speed-bytes") required this.speedBytes,
+      @JsonKey(name: "size-units") required final List<String> sizeUnits,
+      @JsonKey(name: "size-bytes") required this.sizeBytes,
+      @JsonKey(name: "memory-units") required final List<String> memoryUnits,
+      @JsonKey(name: "memory-bytes") required this.memoryBytes})
+      : _speedUnits = speedUnits,
+        _sizeUnits = sizeUnits,
+        _memoryUnits = memoryUnits;
+
+  factory _$_TransmissionSessionUnits.fromJson(Map<String, dynamic> json) =>
+      _$$_TransmissionSessionUnitsFromJson(json);
+
+  final List<String> _speedUnits;
+  @override
+  @JsonKey(name: "speed-units")
+  List<String> get speedUnits {
+    if (_speedUnits is EqualUnmodifiableListView) return _speedUnits;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_speedUnits);
+  }
+
+  @override
+  @JsonKey(name: "speed-bytes")
+  final int speedBytes;
+  final List<String> _sizeUnits;
+  @override
+  @JsonKey(name: "size-units")
+  List<String> get sizeUnits {
+    if (_sizeUnits is EqualUnmodifiableListView) return _sizeUnits;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_sizeUnits);
+  }
+
+  @override
+  @JsonKey(name: "size-bytes")
+  final int sizeBytes;
+  final List<String> _memoryUnits;
+  @override
+  @JsonKey(name: "memory-units")
+  List<String> get memoryUnits {
+    if (_memoryUnits is EqualUnmodifiableListView) return _memoryUnits;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_memoryUnits);
+  }
+
+  @override
+  @JsonKey(name: "memory-bytes")
+  final int memoryBytes;
+
+  @override
+  String toString() {
+    return 'TransmissionSessionUnits(speedUnits: $speedUnits, speedBytes: $speedBytes, sizeUnits: $sizeUnits, sizeBytes: $sizeBytes, memoryUnits: $memoryUnits, memoryBytes: $memoryBytes)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_TransmissionSessionUnits &&
+            const DeepCollectionEquality()
+                .equals(other._speedUnits, _speedUnits) &&
+            (identical(other.speedBytes, speedBytes) ||
+                other.speedBytes == speedBytes) &&
+            const DeepCollectionEquality()
+                .equals(other._sizeUnits, _sizeUnits) &&
+            (identical(other.sizeBytes, sizeBytes) ||
+                other.sizeBytes == sizeBytes) &&
+            const DeepCollectionEquality()
+                .equals(other._memoryUnits, _memoryUnits) &&
+            (identical(other.memoryBytes, memoryBytes) ||
+                other.memoryBytes == memoryBytes));
+  }
+
+  @JsonKey(ignore: true)
+  @override
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(_speedUnits),
+      speedBytes,
+      const DeepCollectionEquality().hash(_sizeUnits),
+      sizeBytes,
+      const DeepCollectionEquality().hash(_memoryUnits),
+      memoryBytes);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_TransmissionSessionUnitsCopyWith<_$_TransmissionSessionUnits>
+      get copyWith => __$$_TransmissionSessionUnitsCopyWithImpl<
+          _$_TransmissionSessionUnits>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$_TransmissionSessionUnitsToJson(
+      this,
+    );
+  }
+}
+
+abstract class _TransmissionSessionUnits implements TransmissionSessionUnits {
+  const factory _TransmissionSessionUnits(
+      {@JsonKey(name: "speed-units") required final List<String> speedUnits,
+      @JsonKey(name: "speed-bytes") required final int speedBytes,
+      @JsonKey(name: "size-units") required final List<String> sizeUnits,
+      @JsonKey(name: "size-bytes") required final int sizeBytes,
+      @JsonKey(name: "memory-units") required final List<String> memoryUnits,
+      @JsonKey(name: "memory-bytes")
+      required final int memoryBytes}) = _$_TransmissionSessionUnits;
+
+  factory _TransmissionSessionUnits.fromJson(Map<String, dynamic> json) =
+      _$_TransmissionSessionUnits.fromJson;
+
+  @override
+  @JsonKey(name: "speed-units")
+  List<String> get speedUnits;
+  @override
+  @JsonKey(name: "speed-bytes")
+  int get speedBytes;
+  @override
+  @JsonKey(name: "size-units")
+  List<String> get sizeUnits;
+  @override
+  @JsonKey(name: "size-bytes")
+  int get sizeBytes;
+  @override
+  @JsonKey(name: "memory-units")
+  List<String> get memoryUnits;
+  @override
+  @JsonKey(name: "memory-bytes")
+  int get memoryBytes;
+  @override
+  @JsonKey(ignore: true)
+  _$$_TransmissionSessionUnitsCopyWith<_$_TransmissionSessionUnits>
+      get copyWith => throw _privateConstructorUsedError;
 }

@@ -3,10 +3,13 @@ import 'package:transmission_rpc/transmission_rpc.dart';
 
 extension TorrentGet on Transmission {
   Future<List<TransmissionTorrent>> getTorrents({
+    /// Ids to return the requested fields from. If omitted then returns for all IDs.
     List<int>? ids,
+
+    /// Fields of the torrents. If omitted then returns for all fields.
     List<TransmissionTorrentGetFields>? fields,
   }) async {
-    final rawTorrents = (await sendRawRequest(
+    final res = await sendRawRequest(
       TransmissionRequest(method: "torrent-get", arguments: {
         if (ids != null) "ids": ids,
         "fields": (fields ?? TransmissionTorrentGetFields.values)
@@ -14,10 +17,12 @@ extension TorrentGet on Transmission {
             .toList(),
         "format": "object",
       }),
-    ))
-        .arguments["torrents"]! as List<dynamic>;
+    );
+    final rawTorrents = res.arguments["torrents"] as List<dynamic>?;
 
-    return rawTorrents.map((raw) => TransmissionTorrent.fromJson(raw)).toList();
+    return rawTorrents!
+        .map((raw) => TransmissionTorrent.fromJson(raw))
+        .toList();
   }
 }
 
