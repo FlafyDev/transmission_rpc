@@ -1,4 +1,3 @@
-import 'package:transmission_rpc/src/models/transmission.dart';
 import 'package:transmission_rpc/transmission_rpc.dart';
 
 extension TorrentAdd on Transmission {

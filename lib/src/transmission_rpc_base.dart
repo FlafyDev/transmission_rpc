@@ -46,7 +46,6 @@ class Transmission {
       return recurse();
     }
 
-    print(res.statusCode);
     switch (res.statusCode) {
       case 409:
         _sessionId = res.headers["x-transmission-session-id"];
@@ -80,4 +79,7 @@ class Transmission {
 class TransmissionResponseException implements Exception {
   final String cause;
   TransmissionResponseException(this.cause);
+
+  @override
+  String toString() => "TransmissionResponseException: $cause";
 }

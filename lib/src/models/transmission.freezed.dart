@@ -2333,10 +2333,10 @@ mixin _$TransmissionTorrent {
   DateTime? get editDate => throw _privateConstructorUsedError;
   int? get error => throw _privateConstructorUsedError;
   String? get errorString => throw _privateConstructorUsedError;
-  @EpochDateTimeSecondsConverter()
-  DateTime? get eta => throw _privateConstructorUsedError;
-  @EpochDateTimeSecondsConverter()
-  DateTime? get etaIdle => throw _privateConstructorUsedError;
+  @DurationTimeSecondsConverter()
+  Duration? get eta => throw _privateConstructorUsedError;
+  @DurationTimeSecondsConverter()
+  Duration? get etaIdle => throw _privateConstructorUsedError;
   @JsonKey(name: "file-count")
   int? get fileCount => throw _privateConstructorUsedError;
   List<TransmissionTorrentFile>? get files =>
@@ -2448,8 +2448,8 @@ abstract class $TransmissionTorrentCopyWith<$Res> {
       @EpochDateTimeSecondsConverter() DateTime? editDate,
       int? error,
       String? errorString,
-      @EpochDateTimeSecondsConverter() DateTime? eta,
-      @EpochDateTimeSecondsConverter() DateTime? etaIdle,
+      @DurationTimeSecondsConverter() Duration? eta,
+      @DurationTimeSecondsConverter() Duration? etaIdle,
       @JsonKey(name: "file-count") int? fileCount,
       List<TransmissionTorrentFile>? files,
       List<TransmissionTorrentFileStat>? fileStats,
@@ -2675,11 +2675,11 @@ class _$TransmissionTorrentCopyWithImpl<$Res, $Val extends TransmissionTorrent>
       eta: freezed == eta
           ? _value.eta
           : eta // ignore: cast_nullable_to_non_nullable
-              as DateTime?,
+              as Duration?,
       etaIdle: freezed == etaIdle
           ? _value.etaIdle
           : etaIdle // ignore: cast_nullable_to_non_nullable
-              as DateTime?,
+              as Duration?,
       fileCount: freezed == fileCount
           ? _value.fileCount
           : fileCount // ignore: cast_nullable_to_non_nullable
@@ -2951,8 +2951,8 @@ abstract class _$$_TransmissionTorrentCopyWith<$Res>
       @EpochDateTimeSecondsConverter() DateTime? editDate,
       int? error,
       String? errorString,
-      @EpochDateTimeSecondsConverter() DateTime? eta,
-      @EpochDateTimeSecondsConverter() DateTime? etaIdle,
+      @DurationTimeSecondsConverter() Duration? eta,
+      @DurationTimeSecondsConverter() Duration? etaIdle,
       @JsonKey(name: "file-count") int? fileCount,
       List<TransmissionTorrentFile>? files,
       List<TransmissionTorrentFileStat>? fileStats,
@@ -3177,11 +3177,11 @@ class __$$_TransmissionTorrentCopyWithImpl<$Res>
       eta: freezed == eta
           ? _value.eta
           : eta // ignore: cast_nullable_to_non_nullable
-              as DateTime?,
+              as Duration?,
       etaIdle: freezed == etaIdle
           ? _value.etaIdle
           : etaIdle // ignore: cast_nullable_to_non_nullable
-              as DateTime?,
+              as Duration?,
       fileCount: freezed == fileCount
           ? _value.fileCount
           : fileCount // ignore: cast_nullable_to_non_nullable
@@ -3435,8 +3435,8 @@ class _$_TransmissionTorrent implements _TransmissionTorrent {
       @EpochDateTimeSecondsConverter() required this.editDate,
       required this.error,
       required this.errorString,
-      @EpochDateTimeSecondsConverter() required this.eta,
-      @EpochDateTimeSecondsConverter() required this.etaIdle,
+      @DurationTimeSecondsConverter() required this.eta,
+      @DurationTimeSecondsConverter() required this.etaIdle,
       @JsonKey(name: "file-count") required this.fileCount,
       required final List<TransmissionTorrentFile>? files,
       required final List<TransmissionTorrentFileStat>? fileStats,
@@ -3559,11 +3559,11 @@ class _$_TransmissionTorrent implements _TransmissionTorrent {
   @override
   final String? errorString;
   @override
-  @EpochDateTimeSecondsConverter()
-  final DateTime? eta;
+  @DurationTimeSecondsConverter()
+  final Duration? eta;
   @override
-  @EpochDateTimeSecondsConverter()
-  final DateTime? etaIdle;
+  @DurationTimeSecondsConverter()
+  final Duration? etaIdle;
   @override
   @JsonKey(name: "file-count")
   final int? fileCount;
@@ -4019,8 +4019,8 @@ abstract class _TransmissionTorrent implements TransmissionTorrent {
       @EpochDateTimeSecondsConverter() required final DateTime? editDate,
       required final int? error,
       required final String? errorString,
-      @EpochDateTimeSecondsConverter() required final DateTime? eta,
-      @EpochDateTimeSecondsConverter() required final DateTime? etaIdle,
+      @DurationTimeSecondsConverter() required final Duration? eta,
+      @DurationTimeSecondsConverter() required final Duration? etaIdle,
       @JsonKey(name: "file-count") required final int? fileCount,
       required final List<TransmissionTorrentFile>? files,
       required final List<TransmissionTorrentFileStat>? fileStats,
@@ -4125,11 +4125,11 @@ abstract class _TransmissionTorrent implements TransmissionTorrent {
   @override
   String? get errorString;
   @override
-  @EpochDateTimeSecondsConverter()
-  DateTime? get eta;
+  @DurationTimeSecondsConverter()
+  Duration? get eta;
   @override
-  @EpochDateTimeSecondsConverter()
-  DateTime? get etaIdle;
+  @DurationTimeSecondsConverter()
+  Duration? get etaIdle;
   @override
   @JsonKey(name: "file-count")
   int? get fileCount;
@@ -4294,7 +4294,7 @@ mixin _$TransmissionSession {
 
   /// MB
   @JsonKey(name: "cache-size-mb")
-  String? get cacheSize => throw _privateConstructorUsedError;
+  int? get cacheSize => throw _privateConstructorUsedError;
   @JsonKey(name: "config-dir")
   String? get configDir => throw _privateConstructorUsedError;
   @JsonKey(name: "default-trackers")
@@ -4407,7 +4407,7 @@ abstract class $TransmissionSessionCopyWith<$Res> {
       @JsonKey(name: "blocklist-enabled") bool? blocklistEnabled,
       @JsonKey(name: "blocklist-size") int? blocklistSize,
       @JsonKey(name: "blocklist-url") String? blocklistUrl,
-      @JsonKey(name: "cache-size-mb") String? cacheSize,
+      @JsonKey(name: "cache-size-mb") int? cacheSize,
       @JsonKey(name: "config-dir") String? configDir,
       @JsonKey(name: "default-trackers") String? defaultTrackers,
       @JsonKey(name: "dht-enabled") bool? dhtEnabled,
@@ -4577,7 +4577,7 @@ class _$TransmissionSessionCopyWithImpl<$Res, $Val extends TransmissionSession>
       cacheSize: freezed == cacheSize
           ? _value.cacheSize
           : cacheSize // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as int?,
       configDir: freezed == configDir
           ? _value.configDir
           : configDir // ignore: cast_nullable_to_non_nullable
@@ -4791,7 +4791,7 @@ abstract class _$$_TransmissionSessionCopyWith<$Res>
       @JsonKey(name: "blocklist-enabled") bool? blocklistEnabled,
       @JsonKey(name: "blocklist-size") int? blocklistSize,
       @JsonKey(name: "blocklist-url") String? blocklistUrl,
-      @JsonKey(name: "cache-size-mb") String? cacheSize,
+      @JsonKey(name: "cache-size-mb") int? cacheSize,
       @JsonKey(name: "config-dir") String? configDir,
       @JsonKey(name: "default-trackers") String? defaultTrackers,
       @JsonKey(name: "dht-enabled") bool? dhtEnabled,
@@ -4960,7 +4960,7 @@ class __$$_TransmissionSessionCopyWithImpl<$Res>
       cacheSize: freezed == cacheSize
           ? _value.cacheSize
           : cacheSize // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as int?,
       configDir: freezed == configDir
           ? _value.configDir
           : configDir // ignore: cast_nullable_to_non_nullable
@@ -5256,7 +5256,7 @@ class _$_TransmissionSession implements _TransmissionSession {
   /// MB
   @override
   @JsonKey(name: "cache-size-mb")
-  final String? cacheSize;
+  final int? cacheSize;
   @override
   @JsonKey(name: "config-dir")
   final String? configDir;
@@ -5584,7 +5584,7 @@ abstract class _TransmissionSession implements TransmissionSession {
       @JsonKey(name: "blocklist-enabled") required final bool? blocklistEnabled,
       @JsonKey(name: "blocklist-size") required final int? blocklistSize,
       @JsonKey(name: "blocklist-url") required final String? blocklistUrl,
-      @JsonKey(name: "cache-size-mb") required final String? cacheSize,
+      @JsonKey(name: "cache-size-mb") required final int? cacheSize,
       @JsonKey(name: "config-dir") required final String? configDir,
       @JsonKey(name: "default-trackers") required final String? defaultTrackers,
       @JsonKey(name: "dht-enabled") required final bool? dhtEnabled,
@@ -5691,7 +5691,7 @@ abstract class _TransmissionSession implements TransmissionSession {
 
   /// MB
   @JsonKey(name: "cache-size-mb")
-  String? get cacheSize;
+  int? get cacheSize;
   @override
   @JsonKey(name: "config-dir")
   String? get configDir;
@@ -6124,4 +6124,754 @@ abstract class _TransmissionSessionUnits implements TransmissionSessionUnits {
   @JsonKey(ignore: true)
   _$$_TransmissionSessionUnitsCopyWith<_$_TransmissionSessionUnits>
       get copyWith => throw _privateConstructorUsedError;
+}
+
+TransmissionSessionStats _$TransmissionSessionStatsFromJson(
+    Map<String, dynamic> json) {
+  return _TransmissionSessionStats.fromJson(json);
+}
+
+/// @nodoc
+mixin _$TransmissionSessionStats {
+  int get activeTorrentCount => throw _privateConstructorUsedError;
+  int get downloadSpeed => throw _privateConstructorUsedError;
+  int get pausedTorrentCount => throw _privateConstructorUsedError;
+  int get torrentCount => throw _privateConstructorUsedError;
+  int get uploadSpeed => throw _privateConstructorUsedError;
+  @JsonKey(name: "cumulative-stats")
+  TransmissionSessionStatsStats get cumulativeStats =>
+      throw _privateConstructorUsedError;
+  @JsonKey(name: "current-stats")
+  TransmissionSessionStatsStats get currentStats =>
+      throw _privateConstructorUsedError;
+
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $TransmissionSessionStatsCopyWith<TransmissionSessionStats> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $TransmissionSessionStatsCopyWith<$Res> {
+  factory $TransmissionSessionStatsCopyWith(TransmissionSessionStats value,
+          $Res Function(TransmissionSessionStats) then) =
+      _$TransmissionSessionStatsCopyWithImpl<$Res, TransmissionSessionStats>;
+  @useResult
+  $Res call(
+      {int activeTorrentCount,
+      int downloadSpeed,
+      int pausedTorrentCount,
+      int torrentCount,
+      int uploadSpeed,
+      @JsonKey(name: "cumulative-stats")
+      TransmissionSessionStatsStats cumulativeStats,
+      @JsonKey(name: "current-stats")
+      TransmissionSessionStatsStats currentStats});
+
+  $TransmissionSessionStatsStatsCopyWith<$Res> get cumulativeStats;
+  $TransmissionSessionStatsStatsCopyWith<$Res> get currentStats;
+}
+
+/// @nodoc
+class _$TransmissionSessionStatsCopyWithImpl<$Res,
+        $Val extends TransmissionSessionStats>
+    implements $TransmissionSessionStatsCopyWith<$Res> {
+  _$TransmissionSessionStatsCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? activeTorrentCount = null,
+    Object? downloadSpeed = null,
+    Object? pausedTorrentCount = null,
+    Object? torrentCount = null,
+    Object? uploadSpeed = null,
+    Object? cumulativeStats = null,
+    Object? currentStats = null,
+  }) {
+    return _then(_value.copyWith(
+      activeTorrentCount: null == activeTorrentCount
+          ? _value.activeTorrentCount
+          : activeTorrentCount // ignore: cast_nullable_to_non_nullable
+              as int,
+      downloadSpeed: null == downloadSpeed
+          ? _value.downloadSpeed
+          : downloadSpeed // ignore: cast_nullable_to_non_nullable
+              as int,
+      pausedTorrentCount: null == pausedTorrentCount
+          ? _value.pausedTorrentCount
+          : pausedTorrentCount // ignore: cast_nullable_to_non_nullable
+              as int,
+      torrentCount: null == torrentCount
+          ? _value.torrentCount
+          : torrentCount // ignore: cast_nullable_to_non_nullable
+              as int,
+      uploadSpeed: null == uploadSpeed
+          ? _value.uploadSpeed
+          : uploadSpeed // ignore: cast_nullable_to_non_nullable
+              as int,
+      cumulativeStats: null == cumulativeStats
+          ? _value.cumulativeStats
+          : cumulativeStats // ignore: cast_nullable_to_non_nullable
+              as TransmissionSessionStatsStats,
+      currentStats: null == currentStats
+          ? _value.currentStats
+          : currentStats // ignore: cast_nullable_to_non_nullable
+              as TransmissionSessionStatsStats,
+    ) as $Val);
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $TransmissionSessionStatsStatsCopyWith<$Res> get cumulativeStats {
+    return $TransmissionSessionStatsStatsCopyWith<$Res>(_value.cumulativeStats,
+        (value) {
+      return _then(_value.copyWith(cumulativeStats: value) as $Val);
+    });
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $TransmissionSessionStatsStatsCopyWith<$Res> get currentStats {
+    return $TransmissionSessionStatsStatsCopyWith<$Res>(_value.currentStats,
+        (value) {
+      return _then(_value.copyWith(currentStats: value) as $Val);
+    });
+  }
+}
+
+/// @nodoc
+abstract class _$$_TransmissionSessionStatsCopyWith<$Res>
+    implements $TransmissionSessionStatsCopyWith<$Res> {
+  factory _$$_TransmissionSessionStatsCopyWith(
+          _$_TransmissionSessionStats value,
+          $Res Function(_$_TransmissionSessionStats) then) =
+      __$$_TransmissionSessionStatsCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call(
+      {int activeTorrentCount,
+      int downloadSpeed,
+      int pausedTorrentCount,
+      int torrentCount,
+      int uploadSpeed,
+      @JsonKey(name: "cumulative-stats")
+      TransmissionSessionStatsStats cumulativeStats,
+      @JsonKey(name: "current-stats")
+      TransmissionSessionStatsStats currentStats});
+
+  @override
+  $TransmissionSessionStatsStatsCopyWith<$Res> get cumulativeStats;
+  @override
+  $TransmissionSessionStatsStatsCopyWith<$Res> get currentStats;
+}
+
+/// @nodoc
+class __$$_TransmissionSessionStatsCopyWithImpl<$Res>
+    extends _$TransmissionSessionStatsCopyWithImpl<$Res,
+        _$_TransmissionSessionStats>
+    implements _$$_TransmissionSessionStatsCopyWith<$Res> {
+  __$$_TransmissionSessionStatsCopyWithImpl(_$_TransmissionSessionStats _value,
+      $Res Function(_$_TransmissionSessionStats) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? activeTorrentCount = null,
+    Object? downloadSpeed = null,
+    Object? pausedTorrentCount = null,
+    Object? torrentCount = null,
+    Object? uploadSpeed = null,
+    Object? cumulativeStats = null,
+    Object? currentStats = null,
+  }) {
+    return _then(_$_TransmissionSessionStats(
+      activeTorrentCount: null == activeTorrentCount
+          ? _value.activeTorrentCount
+          : activeTorrentCount // ignore: cast_nullable_to_non_nullable
+              as int,
+      downloadSpeed: null == downloadSpeed
+          ? _value.downloadSpeed
+          : downloadSpeed // ignore: cast_nullable_to_non_nullable
+              as int,
+      pausedTorrentCount: null == pausedTorrentCount
+          ? _value.pausedTorrentCount
+          : pausedTorrentCount // ignore: cast_nullable_to_non_nullable
+              as int,
+      torrentCount: null == torrentCount
+          ? _value.torrentCount
+          : torrentCount // ignore: cast_nullable_to_non_nullable
+              as int,
+      uploadSpeed: null == uploadSpeed
+          ? _value.uploadSpeed
+          : uploadSpeed // ignore: cast_nullable_to_non_nullable
+              as int,
+      cumulativeStats: null == cumulativeStats
+          ? _value.cumulativeStats
+          : cumulativeStats // ignore: cast_nullable_to_non_nullable
+              as TransmissionSessionStatsStats,
+      currentStats: null == currentStats
+          ? _value.currentStats
+          : currentStats // ignore: cast_nullable_to_non_nullable
+              as TransmissionSessionStatsStats,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$_TransmissionSessionStats implements _TransmissionSessionStats {
+  const _$_TransmissionSessionStats(
+      {required this.activeTorrentCount,
+      required this.downloadSpeed,
+      required this.pausedTorrentCount,
+      required this.torrentCount,
+      required this.uploadSpeed,
+      @JsonKey(name: "cumulative-stats") required this.cumulativeStats,
+      @JsonKey(name: "current-stats") required this.currentStats});
+
+  factory _$_TransmissionSessionStats.fromJson(Map<String, dynamic> json) =>
+      _$$_TransmissionSessionStatsFromJson(json);
+
+  @override
+  final int activeTorrentCount;
+  @override
+  final int downloadSpeed;
+  @override
+  final int pausedTorrentCount;
+  @override
+  final int torrentCount;
+  @override
+  final int uploadSpeed;
+  @override
+  @JsonKey(name: "cumulative-stats")
+  final TransmissionSessionStatsStats cumulativeStats;
+  @override
+  @JsonKey(name: "current-stats")
+  final TransmissionSessionStatsStats currentStats;
+
+  @override
+  String toString() {
+    return 'TransmissionSessionStats(activeTorrentCount: $activeTorrentCount, downloadSpeed: $downloadSpeed, pausedTorrentCount: $pausedTorrentCount, torrentCount: $torrentCount, uploadSpeed: $uploadSpeed, cumulativeStats: $cumulativeStats, currentStats: $currentStats)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_TransmissionSessionStats &&
+            (identical(other.activeTorrentCount, activeTorrentCount) ||
+                other.activeTorrentCount == activeTorrentCount) &&
+            (identical(other.downloadSpeed, downloadSpeed) ||
+                other.downloadSpeed == downloadSpeed) &&
+            (identical(other.pausedTorrentCount, pausedTorrentCount) ||
+                other.pausedTorrentCount == pausedTorrentCount) &&
+            (identical(other.torrentCount, torrentCount) ||
+                other.torrentCount == torrentCount) &&
+            (identical(other.uploadSpeed, uploadSpeed) ||
+                other.uploadSpeed == uploadSpeed) &&
+            (identical(other.cumulativeStats, cumulativeStats) ||
+                other.cumulativeStats == cumulativeStats) &&
+            (identical(other.currentStats, currentStats) ||
+                other.currentStats == currentStats));
+  }
+
+  @JsonKey(ignore: true)
+  @override
+  int get hashCode => Object.hash(
+      runtimeType,
+      activeTorrentCount,
+      downloadSpeed,
+      pausedTorrentCount,
+      torrentCount,
+      uploadSpeed,
+      cumulativeStats,
+      currentStats);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_TransmissionSessionStatsCopyWith<_$_TransmissionSessionStats>
+      get copyWith => __$$_TransmissionSessionStatsCopyWithImpl<
+          _$_TransmissionSessionStats>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$_TransmissionSessionStatsToJson(
+      this,
+    );
+  }
+}
+
+abstract class _TransmissionSessionStats implements TransmissionSessionStats {
+  const factory _TransmissionSessionStats(
+          {required final int activeTorrentCount,
+          required final int downloadSpeed,
+          required final int pausedTorrentCount,
+          required final int torrentCount,
+          required final int uploadSpeed,
+          @JsonKey(name: "cumulative-stats")
+          required final TransmissionSessionStatsStats cumulativeStats,
+          @JsonKey(name: "current-stats")
+          required final TransmissionSessionStatsStats currentStats}) =
+      _$_TransmissionSessionStats;
+
+  factory _TransmissionSessionStats.fromJson(Map<String, dynamic> json) =
+      _$_TransmissionSessionStats.fromJson;
+
+  @override
+  int get activeTorrentCount;
+  @override
+  int get downloadSpeed;
+  @override
+  int get pausedTorrentCount;
+  @override
+  int get torrentCount;
+  @override
+  int get uploadSpeed;
+  @override
+  @JsonKey(name: "cumulative-stats")
+  TransmissionSessionStatsStats get cumulativeStats;
+  @override
+  @JsonKey(name: "current-stats")
+  TransmissionSessionStatsStats get currentStats;
+  @override
+  @JsonKey(ignore: true)
+  _$$_TransmissionSessionStatsCopyWith<_$_TransmissionSessionStats>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+TransmissionSessionStatsStats _$TransmissionSessionStatsStatsFromJson(
+    Map<String, dynamic> json) {
+  return _TransmissionSessionStatsStats.fromJson(json);
+}
+
+/// @nodoc
+mixin _$TransmissionSessionStatsStats {
+  int get uploadedBytes => throw _privateConstructorUsedError;
+  int get downloadedBytes => throw _privateConstructorUsedError;
+  int get filesAdded => throw _privateConstructorUsedError;
+  int get sessionCount => throw _privateConstructorUsedError;
+  int get secondsActive => throw _privateConstructorUsedError;
+
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $TransmissionSessionStatsStatsCopyWith<TransmissionSessionStatsStats>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $TransmissionSessionStatsStatsCopyWith<$Res> {
+  factory $TransmissionSessionStatsStatsCopyWith(
+          TransmissionSessionStatsStats value,
+          $Res Function(TransmissionSessionStatsStats) then) =
+      _$TransmissionSessionStatsStatsCopyWithImpl<$Res,
+          TransmissionSessionStatsStats>;
+  @useResult
+  $Res call(
+      {int uploadedBytes,
+      int downloadedBytes,
+      int filesAdded,
+      int sessionCount,
+      int secondsActive});
+}
+
+/// @nodoc
+class _$TransmissionSessionStatsStatsCopyWithImpl<$Res,
+        $Val extends TransmissionSessionStatsStats>
+    implements $TransmissionSessionStatsStatsCopyWith<$Res> {
+  _$TransmissionSessionStatsStatsCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? uploadedBytes = null,
+    Object? downloadedBytes = null,
+    Object? filesAdded = null,
+    Object? sessionCount = null,
+    Object? secondsActive = null,
+  }) {
+    return _then(_value.copyWith(
+      uploadedBytes: null == uploadedBytes
+          ? _value.uploadedBytes
+          : uploadedBytes // ignore: cast_nullable_to_non_nullable
+              as int,
+      downloadedBytes: null == downloadedBytes
+          ? _value.downloadedBytes
+          : downloadedBytes // ignore: cast_nullable_to_non_nullable
+              as int,
+      filesAdded: null == filesAdded
+          ? _value.filesAdded
+          : filesAdded // ignore: cast_nullable_to_non_nullable
+              as int,
+      sessionCount: null == sessionCount
+          ? _value.sessionCount
+          : sessionCount // ignore: cast_nullable_to_non_nullable
+              as int,
+      secondsActive: null == secondsActive
+          ? _value.secondsActive
+          : secondsActive // ignore: cast_nullable_to_non_nullable
+              as int,
+    ) as $Val);
+  }
+}
+
+/// @nodoc
+abstract class _$$_TransmissionSessionStatsStatsCopyWith<$Res>
+    implements $TransmissionSessionStatsStatsCopyWith<$Res> {
+  factory _$$_TransmissionSessionStatsStatsCopyWith(
+          _$_TransmissionSessionStatsStats value,
+          $Res Function(_$_TransmissionSessionStatsStats) then) =
+      __$$_TransmissionSessionStatsStatsCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call(
+      {int uploadedBytes,
+      int downloadedBytes,
+      int filesAdded,
+      int sessionCount,
+      int secondsActive});
+}
+
+/// @nodoc
+class __$$_TransmissionSessionStatsStatsCopyWithImpl<$Res>
+    extends _$TransmissionSessionStatsStatsCopyWithImpl<$Res,
+        _$_TransmissionSessionStatsStats>
+    implements _$$_TransmissionSessionStatsStatsCopyWith<$Res> {
+  __$$_TransmissionSessionStatsStatsCopyWithImpl(
+      _$_TransmissionSessionStatsStats _value,
+      $Res Function(_$_TransmissionSessionStatsStats) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? uploadedBytes = null,
+    Object? downloadedBytes = null,
+    Object? filesAdded = null,
+    Object? sessionCount = null,
+    Object? secondsActive = null,
+  }) {
+    return _then(_$_TransmissionSessionStatsStats(
+      uploadedBytes: null == uploadedBytes
+          ? _value.uploadedBytes
+          : uploadedBytes // ignore: cast_nullable_to_non_nullable
+              as int,
+      downloadedBytes: null == downloadedBytes
+          ? _value.downloadedBytes
+          : downloadedBytes // ignore: cast_nullable_to_non_nullable
+              as int,
+      filesAdded: null == filesAdded
+          ? _value.filesAdded
+          : filesAdded // ignore: cast_nullable_to_non_nullable
+              as int,
+      sessionCount: null == sessionCount
+          ? _value.sessionCount
+          : sessionCount // ignore: cast_nullable_to_non_nullable
+              as int,
+      secondsActive: null == secondsActive
+          ? _value.secondsActive
+          : secondsActive // ignore: cast_nullable_to_non_nullable
+              as int,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$_TransmissionSessionStatsStats
+    implements _TransmissionSessionStatsStats {
+  const _$_TransmissionSessionStatsStats(
+      {required this.uploadedBytes,
+      required this.downloadedBytes,
+      required this.filesAdded,
+      required this.sessionCount,
+      required this.secondsActive});
+
+  factory _$_TransmissionSessionStatsStats.fromJson(
+          Map<String, dynamic> json) =>
+      _$$_TransmissionSessionStatsStatsFromJson(json);
+
+  @override
+  final int uploadedBytes;
+  @override
+  final int downloadedBytes;
+  @override
+  final int filesAdded;
+  @override
+  final int sessionCount;
+  @override
+  final int secondsActive;
+
+  @override
+  String toString() {
+    return 'TransmissionSessionStatsStats(uploadedBytes: $uploadedBytes, downloadedBytes: $downloadedBytes, filesAdded: $filesAdded, sessionCount: $sessionCount, secondsActive: $secondsActive)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_TransmissionSessionStatsStats &&
+            (identical(other.uploadedBytes, uploadedBytes) ||
+                other.uploadedBytes == uploadedBytes) &&
+            (identical(other.downloadedBytes, downloadedBytes) ||
+                other.downloadedBytes == downloadedBytes) &&
+            (identical(other.filesAdded, filesAdded) ||
+                other.filesAdded == filesAdded) &&
+            (identical(other.sessionCount, sessionCount) ||
+                other.sessionCount == sessionCount) &&
+            (identical(other.secondsActive, secondsActive) ||
+                other.secondsActive == secondsActive));
+  }
+
+  @JsonKey(ignore: true)
+  @override
+  int get hashCode => Object.hash(runtimeType, uploadedBytes, downloadedBytes,
+      filesAdded, sessionCount, secondsActive);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_TransmissionSessionStatsStatsCopyWith<_$_TransmissionSessionStatsStats>
+      get copyWith => __$$_TransmissionSessionStatsStatsCopyWithImpl<
+          _$_TransmissionSessionStatsStats>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$_TransmissionSessionStatsStatsToJson(
+      this,
+    );
+  }
+}
+
+abstract class _TransmissionSessionStatsStats
+    implements TransmissionSessionStatsStats {
+  const factory _TransmissionSessionStatsStats(
+      {required final int uploadedBytes,
+      required final int downloadedBytes,
+      required final int filesAdded,
+      required final int sessionCount,
+      required final int secondsActive}) = _$_TransmissionSessionStatsStats;
+
+  factory _TransmissionSessionStatsStats.fromJson(Map<String, dynamic> json) =
+      _$_TransmissionSessionStatsStats.fromJson;
+
+  @override
+  int get uploadedBytes;
+  @override
+  int get downloadedBytes;
+  @override
+  int get filesAdded;
+  @override
+  int get sessionCount;
+  @override
+  int get secondsActive;
+  @override
+  @JsonKey(ignore: true)
+  _$$_TransmissionSessionStatsStatsCopyWith<_$_TransmissionSessionStatsStats>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+TransmissionFreeSpace _$TransmissionFreeSpaceFromJson(
+    Map<String, dynamic> json) {
+  return _TransmissionFreeSpace.fromJson(json);
+}
+
+/// @nodoc
+mixin _$TransmissionFreeSpace {
+  String get path => throw _privateConstructorUsedError;
+  @JsonKey(name: 'size-bytes')
+  int get sizeBytes => throw _privateConstructorUsedError;
+  @JsonKey(name: 'total_size')
+  int get totalSize => throw _privateConstructorUsedError;
+
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $TransmissionFreeSpaceCopyWith<TransmissionFreeSpace> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $TransmissionFreeSpaceCopyWith<$Res> {
+  factory $TransmissionFreeSpaceCopyWith(TransmissionFreeSpace value,
+          $Res Function(TransmissionFreeSpace) then) =
+      _$TransmissionFreeSpaceCopyWithImpl<$Res, TransmissionFreeSpace>;
+  @useResult
+  $Res call(
+      {String path,
+      @JsonKey(name: 'size-bytes') int sizeBytes,
+      @JsonKey(name: 'total_size') int totalSize});
+}
+
+/// @nodoc
+class _$TransmissionFreeSpaceCopyWithImpl<$Res,
+        $Val extends TransmissionFreeSpace>
+    implements $TransmissionFreeSpaceCopyWith<$Res> {
+  _$TransmissionFreeSpaceCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? path = null,
+    Object? sizeBytes = null,
+    Object? totalSize = null,
+  }) {
+    return _then(_value.copyWith(
+      path: null == path
+          ? _value.path
+          : path // ignore: cast_nullable_to_non_nullable
+              as String,
+      sizeBytes: null == sizeBytes
+          ? _value.sizeBytes
+          : sizeBytes // ignore: cast_nullable_to_non_nullable
+              as int,
+      totalSize: null == totalSize
+          ? _value.totalSize
+          : totalSize // ignore: cast_nullable_to_non_nullable
+              as int,
+    ) as $Val);
+  }
+}
+
+/// @nodoc
+abstract class _$$_TransmissionFreeSpaceCopyWith<$Res>
+    implements $TransmissionFreeSpaceCopyWith<$Res> {
+  factory _$$_TransmissionFreeSpaceCopyWith(_$_TransmissionFreeSpace value,
+          $Res Function(_$_TransmissionFreeSpace) then) =
+      __$$_TransmissionFreeSpaceCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call(
+      {String path,
+      @JsonKey(name: 'size-bytes') int sizeBytes,
+      @JsonKey(name: 'total_size') int totalSize});
+}
+
+/// @nodoc
+class __$$_TransmissionFreeSpaceCopyWithImpl<$Res>
+    extends _$TransmissionFreeSpaceCopyWithImpl<$Res, _$_TransmissionFreeSpace>
+    implements _$$_TransmissionFreeSpaceCopyWith<$Res> {
+  __$$_TransmissionFreeSpaceCopyWithImpl(_$_TransmissionFreeSpace _value,
+      $Res Function(_$_TransmissionFreeSpace) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? path = null,
+    Object? sizeBytes = null,
+    Object? totalSize = null,
+  }) {
+    return _then(_$_TransmissionFreeSpace(
+      path: null == path
+          ? _value.path
+          : path // ignore: cast_nullable_to_non_nullable
+              as String,
+      sizeBytes: null == sizeBytes
+          ? _value.sizeBytes
+          : sizeBytes // ignore: cast_nullable_to_non_nullable
+              as int,
+      totalSize: null == totalSize
+          ? _value.totalSize
+          : totalSize // ignore: cast_nullable_to_non_nullable
+              as int,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$_TransmissionFreeSpace implements _TransmissionFreeSpace {
+  const _$_TransmissionFreeSpace(
+      {required this.path,
+      @JsonKey(name: 'size-bytes') required this.sizeBytes,
+      @JsonKey(name: 'total_size') required this.totalSize});
+
+  factory _$_TransmissionFreeSpace.fromJson(Map<String, dynamic> json) =>
+      _$$_TransmissionFreeSpaceFromJson(json);
+
+  @override
+  final String path;
+  @override
+  @JsonKey(name: 'size-bytes')
+  final int sizeBytes;
+  @override
+  @JsonKey(name: 'total_size')
+  final int totalSize;
+
+  @override
+  String toString() {
+    return 'TransmissionFreeSpace(path: $path, sizeBytes: $sizeBytes, totalSize: $totalSize)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_TransmissionFreeSpace &&
+            (identical(other.path, path) || other.path == path) &&
+            (identical(other.sizeBytes, sizeBytes) ||
+                other.sizeBytes == sizeBytes) &&
+            (identical(other.totalSize, totalSize) ||
+                other.totalSize == totalSize));
+  }
+
+  @JsonKey(ignore: true)
+  @override
+  int get hashCode => Object.hash(runtimeType, path, sizeBytes, totalSize);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_TransmissionFreeSpaceCopyWith<_$_TransmissionFreeSpace> get copyWith =>
+      __$$_TransmissionFreeSpaceCopyWithImpl<_$_TransmissionFreeSpace>(
+          this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$_TransmissionFreeSpaceToJson(
+      this,
+    );
+  }
+}
+
+abstract class _TransmissionFreeSpace implements TransmissionFreeSpace {
+  const factory _TransmissionFreeSpace(
+          {required final String path,
+          @JsonKey(name: 'size-bytes') required final int sizeBytes,
+          @JsonKey(name: 'total_size') required final int totalSize}) =
+      _$_TransmissionFreeSpace;
+
+  factory _TransmissionFreeSpace.fromJson(Map<String, dynamic> json) =
+      _$_TransmissionFreeSpace.fromJson;
+
+  @override
+  String get path;
+  @override
+  @JsonKey(name: 'size-bytes')
+  int get sizeBytes;
+  @override
+  @JsonKey(name: 'total_size')
+  int get totalSize;
+  @override
+  @JsonKey(ignore: true)
+  _$$_TransmissionFreeSpaceCopyWith<_$_TransmissionFreeSpace> get copyWith =>
+      throw _privateConstructorUsedError;
 }

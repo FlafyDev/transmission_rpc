@@ -14,7 +14,7 @@ class EpochDateTimeSecondsConverter implements JsonConverter<DateTime?, int?> {
   const EpochDateTimeSecondsConverter();
 
   @override
-  DateTime? fromJson(int? json) => json == null ? null : DateTime.fromMillisecondsSinceEpoch(json * 1000);
+  DateTime? fromJson(int? json) => json == null || json == 0 ? null : DateTime.fromMillisecondsSinceEpoch(json * 1000);
 
   @override
   int? toJson(DateTime? object) => object?.millisecondsSinceEpoch;

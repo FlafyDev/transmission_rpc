@@ -1,4 +1,3 @@
-import 'package:transmission_rpc/src/models/transmission.dart';
 import 'package:transmission_rpc/transmission_rpc.dart';
 
 extension TorrentGet on Transmission {
@@ -7,7 +6,7 @@ extension TorrentGet on Transmission {
     List<int>? ids,
 
     /// Fields of the torrents. If omitted then returns for all fields.
-    List<TransmissionTorrentGetFields>? fields,
+    Set<TransmissionTorrentGetFields>? fields,
   }) async {
     final res = await sendRawRequest(
       TransmissionRequest(method: "torrent-get", arguments: {
@@ -106,7 +105,7 @@ enum TransmissionTorrentGetFields {
   webseedsSendingToUs,
 }
 
-extension FieldsToString on TransmissionTorrentGetFields {
+extension _FieldsToString on TransmissionTorrentGetFields {
   String get rpcName {
     return switch (this) {
       TransmissionTorrentGetFields.fileCount => "file-count",

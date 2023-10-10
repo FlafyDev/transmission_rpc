@@ -244,8 +244,8 @@ _$_TransmissionTorrent _$$_TransmissionTorrentFromJson(
           .fromJson(json['editDate'] as int?),
       error: json['error'] as int?,
       errorString: json['errorString'] as String?,
-      eta: const EpochDateTimeSecondsConverter().fromJson(json['eta'] as int?),
-      etaIdle: const EpochDateTimeSecondsConverter()
+      eta: const DurationTimeSecondsConverter().fromJson(json['eta'] as int?),
+      etaIdle: const DurationTimeSecondsConverter()
           .fromJson(json['etaIdle'] as int?),
       fileCount: json['file-count'] as int?,
       files: (json['files'] as List<dynamic>?)
@@ -360,8 +360,8 @@ Map<String, dynamic> _$$_TransmissionTorrentToJson(
           const EpochDateTimeSecondsConverter().toJson(instance.editDate),
       'error': instance.error,
       'errorString': instance.errorString,
-      'eta': const EpochDateTimeSecondsConverter().toJson(instance.eta),
-      'etaIdle': const EpochDateTimeSecondsConverter().toJson(instance.etaIdle),
+      'eta': const DurationTimeSecondsConverter().toJson(instance.eta),
+      'etaIdle': const DurationTimeSecondsConverter().toJson(instance.etaIdle),
       'file-count': instance.fileCount,
       'files': instance.files,
       'fileStats': instance.fileStats,
@@ -459,7 +459,7 @@ _$_TransmissionSession _$$_TransmissionSessionFromJson(
       blocklistEnabled: json['blocklist-enabled'] as bool?,
       blocklistSize: json['blocklist-size'] as int?,
       blocklistUrl: json['blocklist-url'] as String?,
-      cacheSize: json['cache-size-mb'] as String?,
+      cacheSize: json['cache-size-mb'] as int?,
       configDir: json['config-dir'] as String?,
       defaultTrackers: json['default-trackers'] as String?,
       dhtEnabled: json['dht-enabled'] as bool?,
@@ -601,4 +601,66 @@ Map<String, dynamic> _$$_TransmissionSessionUnitsToJson(
       'size-bytes': instance.sizeBytes,
       'memory-units': instance.memoryUnits,
       'memory-bytes': instance.memoryBytes,
+    };
+
+_$_TransmissionSessionStats _$$_TransmissionSessionStatsFromJson(
+        Map<String, dynamic> json) =>
+    _$_TransmissionSessionStats(
+      activeTorrentCount: json['activeTorrentCount'] as int,
+      downloadSpeed: json['downloadSpeed'] as int,
+      pausedTorrentCount: json['pausedTorrentCount'] as int,
+      torrentCount: json['torrentCount'] as int,
+      uploadSpeed: json['uploadSpeed'] as int,
+      cumulativeStats: TransmissionSessionStatsStats.fromJson(
+          json['cumulative-stats'] as Map<String, dynamic>),
+      currentStats: TransmissionSessionStatsStats.fromJson(
+          json['current-stats'] as Map<String, dynamic>),
+    );
+
+Map<String, dynamic> _$$_TransmissionSessionStatsToJson(
+        _$_TransmissionSessionStats instance) =>
+    <String, dynamic>{
+      'activeTorrentCount': instance.activeTorrentCount,
+      'downloadSpeed': instance.downloadSpeed,
+      'pausedTorrentCount': instance.pausedTorrentCount,
+      'torrentCount': instance.torrentCount,
+      'uploadSpeed': instance.uploadSpeed,
+      'cumulative-stats': instance.cumulativeStats,
+      'current-stats': instance.currentStats,
+    };
+
+_$_TransmissionSessionStatsStats _$$_TransmissionSessionStatsStatsFromJson(
+        Map<String, dynamic> json) =>
+    _$_TransmissionSessionStatsStats(
+      uploadedBytes: json['uploadedBytes'] as int,
+      downloadedBytes: json['downloadedBytes'] as int,
+      filesAdded: json['filesAdded'] as int,
+      sessionCount: json['sessionCount'] as int,
+      secondsActive: json['secondsActive'] as int,
+    );
+
+Map<String, dynamic> _$$_TransmissionSessionStatsStatsToJson(
+        _$_TransmissionSessionStatsStats instance) =>
+    <String, dynamic>{
+      'uploadedBytes': instance.uploadedBytes,
+      'downloadedBytes': instance.downloadedBytes,
+      'filesAdded': instance.filesAdded,
+      'sessionCount': instance.sessionCount,
+      'secondsActive': instance.secondsActive,
+    };
+
+_$_TransmissionFreeSpace _$$_TransmissionFreeSpaceFromJson(
+        Map<String, dynamic> json) =>
+    _$_TransmissionFreeSpace(
+      path: json['path'] as String,
+      sizeBytes: json['size-bytes'] as int,
+      totalSize: json['total_size'] as int,
+    );
+
+Map<String, dynamic> _$$_TransmissionFreeSpaceToJson(
+        _$_TransmissionFreeSpace instance) =>
+    <String, dynamic>{
+      'path': instance.path,
+      'size-bytes': instance.sizeBytes,
+      'total_size': instance.totalSize,
     };

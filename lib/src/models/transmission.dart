@@ -227,8 +227,8 @@ class TransmissionTorrent with _$TransmissionTorrent {
     @EpochDateTimeSecondsConverter() required DateTime? editDate,
     required int? error,
     required String? errorString,
-    @EpochDateTimeSecondsConverter() required DateTime? eta,
-    @EpochDateTimeSecondsConverter() required DateTime? etaIdle,
+    @DurationTimeSecondsConverter() required Duration? eta,
+    @DurationTimeSecondsConverter() required Duration? etaIdle,
     @JsonKey(name: "file-count") required int? fileCount,
     required List<TransmissionTorrentFile>? files,
     required List<TransmissionTorrentFileStat>? fileStats,
@@ -278,6 +278,7 @@ class TransmissionTorrent with _$TransmissionTorrent {
 
     /// TODO: 5.4.0
     // required bool sequentialDownload,
+
     required int? sizeWhenDone,
     @EpochDateTimeSecondsConverter() required DateTime? startDate,
     required TransmissionTorrentStatus? status,
@@ -330,7 +331,7 @@ class TransmissionSession with _$TransmissionSession {
     @JsonKey(name: "blocklist-url") required String? blocklistUrl,
 
     /// MB
-    @JsonKey(name: "cache-size-mb") required String? cacheSize,
+    @JsonKey(name: "cache-size-mb") required int? cacheSize,
     @JsonKey(name: "config-dir") required String? configDir,
     @JsonKey(name: "default-trackers") required String? defaultTrackers,
     @JsonKey(name: "dht-enabled") required bool? dhtEnabled,
@@ -407,4 +408,46 @@ class TransmissionSessionUnits with _$TransmissionSessionUnits {
 
   factory TransmissionSessionUnits.fromJson(Map<String, Object?> json) =>
       _$TransmissionSessionUnitsFromJson(json);
+}
+
+@freezed
+class TransmissionSessionStats with _$TransmissionSessionStats {
+  const factory TransmissionSessionStats({
+    required int activeTorrentCount,
+    required int downloadSpeed,
+    required int pausedTorrentCount,
+    required int torrentCount,
+    required int uploadSpeed,
+    @JsonKey(name: "cumulative-stats") required TransmissionSessionStatsStats cumulativeStats,
+    @JsonKey(name: "current-stats") required TransmissionSessionStatsStats currentStats,
+  }) = _TransmissionSessionStats;
+
+  factory TransmissionSessionStats.fromJson(Map<String, Object?> json) =>
+      _$TransmissionSessionStatsFromJson(json);
+}
+
+@freezed
+class TransmissionSessionStatsStats with _$TransmissionSessionStatsStats {
+  const factory TransmissionSessionStatsStats({
+    required int uploadedBytes,
+    required int downloadedBytes,
+    required int filesAdded,
+    required int sessionCount,
+    required int secondsActive,
+  }) = _TransmissionSessionStatsStats;
+
+  factory TransmissionSessionStatsStats.fromJson(Map<String, Object?> json) =>
+      _$TransmissionSessionStatsStatsFromJson(json);
+}
+
+@freezed
+class TransmissionFreeSpace with _$TransmissionFreeSpace {
+  const factory TransmissionFreeSpace({
+    required String path,
+    @JsonKey(name: 'size-bytes') required int sizeBytes,
+    @JsonKey(name: 'total_size') required int totalSize,
+  }) = _TransmissionFreeSpace;
+
+  factory TransmissionFreeSpace.fromJson(Map<String, Object?> json) =>
+      _$TransmissionFreeSpaceFromJson(json);
 }
